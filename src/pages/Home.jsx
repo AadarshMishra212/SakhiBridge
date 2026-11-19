@@ -9,7 +9,10 @@ import {
   ArrowRight,
   MapPin,
   CheckCircle2,
-  BookOpen
+  BookOpen,
+  PhoneCall,
+  Radio,
+  Clock
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { FeatureCard } from '../components/FeatureCard';
@@ -31,7 +34,7 @@ export const Home = () => {
       badge: 'Immediate',
       badgeVariant: 'warning',
       accentColor: 'text-sos',
-      bgColor: 'bg-red-50',
+      bgColor: 'bg-red-50 dark:bg-red-950/50',
       actionText: 'Open SOS Hub',
       onClick: () => navigate('/support')
     },
@@ -42,8 +45,8 @@ export const Home = () => {
       icon: Users,
       badge: 'Active Feed',
       badgeVariant: 'primary',
-      accentColor: 'text-primary',
-      bgColor: 'bg-primary-soft',
+      accentColor: 'text-primary dark:text-primary-light',
+      bgColor: 'bg-primary-soft dark:bg-purple-950/60',
       actionText: 'View Community',
       onClick: () => navigate('/community')
     },
@@ -55,7 +58,7 @@ export const Home = () => {
       badge: 'Guide',
       badgeVariant: 'accent',
       accentColor: 'text-accent',
-      bgColor: 'bg-accent-soft',
+      bgColor: 'bg-accent-soft dark:bg-pink-950/40',
       actionText: 'Explore Rights',
       onClick: () =>
         setActiveModalFeature({
@@ -72,8 +75,8 @@ export const Home = () => {
       icon: HeartPulse,
       badge: 'Wellbeing',
       badgeVariant: 'success',
-      accentColor: 'text-emerald-600',
-      bgColor: 'bg-emerald-50',
+      accentColor: 'text-emerald-600 dark:text-emerald-400',
+      bgColor: 'bg-emerald-50 dark:bg-emerald-950/50',
       actionText: 'Access Wellness',
       onClick: () =>
         setActiveModalFeature({
@@ -85,54 +88,82 @@ export const Home = () => {
     }
   ];
 
-  return (
-    <div className="space-y-5 pb-4">
-      {/* Personalized Welcome Banner */}
-      <div className="relative overflow-hidden rounded-brand bg-gradient-to-br from-primary via-primary-dark to-[#552B9E] text-white p-5 sm:p-6 shadow-soft">
-        {/* Soft background glow circles */}
-        <div className="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-accent/20 blur-2xl pointer-events-none" />
-        <div className="absolute -left-6 -top-6 w-32 h-32 rounded-full bg-white/10 blur-xl pointer-events-none" />
+  const quickHelplines = [
+    { name: 'Women Helpline', number: '1091', desc: '24/7 Pan-India dedicated helpline', color: 'text-primary dark:text-primary-light' },
+    { name: 'National Emergency', number: '112', desc: 'Unified Police, Fire & Medical', color: 'text-sos' },
+    { name: 'Cyber Crime Desk', number: '1930', desc: 'Stalking, harassment & fraud', color: 'text-purple-600 dark:text-purple-300' },
+    { name: 'NCW Crisis Line', number: '7827170170', desc: 'Legal aid & rapid intervention', color: 'text-accent' }
+  ];
 
-        <div className="relative z-10">
-          <div className="flex items-center justify-between mb-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/25">
-              <Sparkles size={12} className="text-pink-200" /> Sakhi Circle Active
-            </span>
-            <span className="text-[11px] text-purple-200 flex items-center gap-1">
-              <MapPin size={12} /> Delhi NCR
-            </span>
+  return (
+    <div className="space-y-6 sm:space-y-8 pb-4">
+      {/* Personalized Welcome Hero Banner (Calibrated for both Mobile & Laptop viewports) */}
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary via-primary-dark to-[#552B9E] text-white p-6 sm:p-8 shadow-float">
+        {/* Soft background glow circles */}
+        <div className="absolute -right-8 -bottom-8 w-48 h-48 rounded-full bg-accent/25 blur-3xl pointer-events-none" />
+        <div className="absolute -left-8 -top-8 w-48 h-48 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/25">
+                <Sparkles size={13} className="text-pink-200" /> Sakhi Circle Active
+              </span>
+              <span className="text-xs text-purple-200 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+                <MapPin size={12} /> Delhi NCR
+              </span>
+              <span className="inline-flex items-center gap-1 text-xs text-emerald-200 font-medium px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+                <CheckCircle2 size={13} /> 3 Guardians Active
+              </span>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white pt-1">
+              Namaste, {firstName}! 💜
+            </h1>
+            <p className="text-sm sm:text-base text-purple-100 max-w-2xl leading-relaxed">
+              Your safe companion, emergency bridge, and trusted sister circle are active and ready.
+            </p>
           </div>
 
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
-            Namaste, {firstName}! 💜
-          </h1>
-          <p className="mt-1 text-sm text-purple-100 max-w-xs leading-relaxed">
-            You are connected with your trusted circle and 24/7 emergency response.
-          </p>
-
-          <div className="mt-4 pt-3 border-t border-white/15 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-emerald-200 font-medium">
-              <CheckCircle2 size={15} /> All 3 Guardians Active
-            </div>
+          {/* Quick Action Buttons on Desktop */}
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 pt-2 lg:pt-0 shrink-0">
             <button
               type="button"
               onClick={() => navigate('/support')}
-              className="px-3 py-1.5 rounded-lg bg-white text-primary text-xs font-bold hover:bg-purple-50 transition-colors shadow-sm inline-flex items-center gap-1"
+              className="px-5 py-3 rounded-xl bg-white text-primary text-xs sm:text-sm font-bold hover:bg-purple-50 transition-all shadow-md active:scale-95 inline-flex items-center gap-2 min-h-touch"
             >
-              Emergency SOS <ArrowRight size={13} />
+              <Radio size={16} className="text-sos animate-pulse" />
+              <span>Emergency SOS</span>
+              <ArrowRight size={14} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate('/community')}
+              className="px-4 py-3 rounded-xl bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs sm:text-sm font-semibold transition-all backdrop-blur-sm inline-flex items-center gap-2 min-h-touch"
+            >
+              <Users size={16} />
+              <span>Community Feed</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Feature Cards Grid (4 placeholder feature cards) */}
+      {/* Feature Cards Grid (Responsive: 1 col on mobile, 2 col on tablet, 4 col on laptop) */}
       <div>
-        <div className="flex items-center justify-between mb-3 px-1">
-          <h2 className="text-base font-bold text-ink dark:text-white">Core Services & Guides</h2>
-          <span className="text-xs text-ink-muted dark:text-purple-300/60">4 pillars</span>
+        <div className="flex items-center justify-between mb-4 px-1">
+          <div>
+            <h2 className="text-lg sm:text-xl font-bold text-ink dark:text-white">Core Services & Guides</h2>
+            <p className="text-xs sm:text-sm text-ink-secondary dark:text-purple-200/70 mt-0.5">
+              4 central pillars of support, sisterhood, and personal safety
+            </p>
+          </div>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-primary-soft dark:bg-[#221A36] text-primary dark:text-primary-light">
+            4 Pillars
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {featureCards.map((card) => (
             <FeatureCard
               key={card.id}
@@ -150,29 +181,44 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Quick Helplines Strip */}
-      <div className="bg-white dark:bg-[#191426] border border-purple-100 dark:border-purple-900/50 rounded-brand p-4 shadow-soft">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-bold text-ink dark:text-white flex items-center gap-2">
-            <BookOpen size={16} className="text-primary dark:text-primary-light" /> Quick National Helplines
-          </h3>
-          <span className="text-[11px] text-ink-muted dark:text-purple-300/60">24/7 Free</span>
+      {/* Quick Helplines Strip (Responsive: 2 col on mobile, 4 col on laptop) */}
+      <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-soft">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-[#251D3A] text-primary dark:text-primary-light flex items-center justify-center shrink-0">
+              <BookOpen size={18} />
+            </div>
+            <div>
+              <h3 className="text-sm sm:text-base font-bold text-ink dark:text-white">
+                Quick National Helplines Directory
+              </h3>
+              <p className="text-xs text-ink-muted dark:text-purple-300/70">
+                Verified 24/7 direct dial emergency assistance
+              </p>
+            </div>
+          </div>
+          <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 px-2.5 py-0.5 rounded-full w-fit">
+            Toll-Free & 24/7
+          </span>
         </div>
-        <div className="grid grid-cols-2 gap-2 text-xs">
-          <a
-            href="tel:1091"
-            className="p-2.5 rounded-xl bg-purple-50/70 dark:bg-[#221C33] hover:bg-purple-100/70 dark:hover:bg-[#2B2342] text-ink dark:text-white flex items-center justify-between transition-colors font-medium border border-purple-100 dark:border-purple-800/40"
-          >
-            <span>Women Helpline</span>
-            <span className="font-bold text-primary dark:text-primary-light">1091</span>
-          </a>
-          <a
-            href="tel:112"
-            className="p-2.5 rounded-xl bg-red-50/70 dark:bg-red-950/40 hover:bg-red-100/70 dark:hover:bg-red-900/50 text-ink dark:text-white flex items-center justify-between transition-colors font-medium border border-red-100 dark:border-red-900/40"
-          >
-            <span>National Emergency</span>
-            <span className="font-bold text-sos dark:text-red-400">112</span>
-          </a>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {quickHelplines.map((item) => (
+            <a
+              key={item.number}
+              href={`tel:${item.number}`}
+              className="p-3.5 rounded-xl bg-surface-alt dark:bg-[#1E1731] hover:bg-purple-50 dark:hover:bg-[#271E40] border border-purple-100 dark:border-purple-800/40 text-ink dark:text-white flex items-center justify-between transition-all hover:shadow-soft active:scale-[0.99] min-h-touch"
+            >
+              <div>
+                <span className="text-xs font-bold block">{item.name}</span>
+                <span className="text-[11px] text-ink-muted dark:text-purple-300/70 line-clamp-1">{item.desc}</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-bold text-sm bg-white dark:bg-[#2A2142] px-2.5 py-1.5 rounded-lg border border-purple-100/60 dark:border-purple-700/50 shrink-0 shadow-xs ml-2">
+                <PhoneCall size={13} className={item.color} />
+                <span className={item.color}>{item.number}</span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -192,4 +238,3 @@ export const Home = () => {
     </div>
   );
 };
-

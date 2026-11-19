@@ -34,8 +34,8 @@ export const BottomNav = () => {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#191426]/95 backdrop-blur-lg border-t border-purple-100 dark:border-purple-900/40 shadow-nav transition-colors duration-200"
-      aria-label="Main Navigation"
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 dark:bg-[#191426]/95 backdrop-blur-lg border-t border-purple-100 dark:border-purple-900/40 shadow-nav transition-colors duration-200"
+      aria-label="Mobile Navigation"
     >
       <div className="max-w-md mx-auto px-4 py-2 flex items-center justify-around">
         {navItems.map((item) => {

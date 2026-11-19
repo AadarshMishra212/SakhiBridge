@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, Mail, Phone, Lock, AlertCircle, ArrowLeft } from 'lucide-react';
+import { User, Mail, Phone, Lock, AlertCircle, ArrowLeft, ShieldCheck, Heart, Radio, CheckCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { InputField } from '../components/InputField';
 import { PrimaryButton } from '../components/PrimaryButton';
@@ -83,7 +83,6 @@ export const Signup = () => {
         phone: formData.phone,
         password: formData.password
       });
-      // Redirect to /home after registration with replace: true
       navigate('/home', { replace: true });
     } catch (err) {
       setServerError(err.message || 'Signup failed. Please try again.');
@@ -93,139 +92,164 @@ export const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface-alt dark:bg-[#0F0C1B] transition-colors duration-200 flex flex-col justify-center px-4 py-8 sm:px-6">
-      <div className="max-w-md w-full mx-auto">
-        {/* Back to Login link */}
-        <div className="mb-4">
-          <Link
-            to="/login"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white transition-colors py-1.5 px-2.5 rounded-lg hover:bg-primary-soft/60 dark:hover:bg-purple-900/40"
-          >
-            <ArrowLeft size={16} /> Back to Log In
-          </Link>
-        </div>
-
-        {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-ink dark:text-white">
-            Create Your <span className="text-primary dark:text-primary-light">Sakhi</span> Account
-          </h1>
-          <p className="mt-1.5 text-sm text-ink-secondary dark:text-purple-200/80">
-            Join thousands of women in a secure, supportive circle.
-          </p>
-        </div>
-
-        {/* Card */}
-        <div className="bg-white dark:bg-[#191426] border border-purple-100 dark:border-purple-900/50 rounded-3xl p-6 sm:p-8 shadow-soft">
-          {serverError && (
-            <div
-              className="mb-5 p-3.5 rounded-brand bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm flex items-start gap-2.5 animate-in fade-in"
-              role="alert"
-            >
-              <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-600 dark:text-red-400" />
-              <span>{serverError}</span>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} noValidate className="space-y-4">
-            <InputField
-              id="signup-name"
-              name="name"
-              type="text"
-              label="Full Name"
-              placeholder="e.g. Priya Sharma"
-              value={formData.name}
-              onChange={handleChange}
-              error={errors.name}
-              autoComplete="name"
-              icon={User}
-              required
-            />
-
-            <InputField
-              id="signup-email"
-              name="email"
-              type="email"
-              label="Email Address"
-              placeholder="priya@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              error={errors.email}
-              autoComplete="email"
-              inputMode="email"
-              icon={Mail}
-              required
-            />
-
-            <InputField
-              id="signup-phone"
-              name="phone"
-              type="tel"
-              label="Phone Number"
-              placeholder="e.g. 98765 43210"
-              value={formData.phone}
-              onChange={handleChange}
-              error={errors.phone}
-              autoComplete="tel"
-              inputMode="tel"
-              icon={Phone}
-              helperText="Used only for emergency SOS alert verification"
-              required
-            />
-
-            <InputField
-              id="signup-password"
-              name="password"
-              type="password"
-              label="Create Password"
-              placeholder="At least 6 characters"
-              value={formData.password}
-              onChange={handleChange}
-              error={errors.password}
-              autoComplete="new-password"
-              icon={Lock}
-              required
-            />
-
-            <InputField
-              id="signup-confirm-password"
-              name="confirmPassword"
-              type="password"
-              label="Confirm Password"
-              placeholder="Re-enter your password"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              error={errors.confirmPassword}
-              autoComplete="new-password"
-              icon={Lock}
-              required
-            />
-
-            <div className="pt-2">
-              <PrimaryButton
-                type="submit"
-                variant="accent"
-                size="lg"
-                isLoading={isLoading}
-                fullWidth
-              >
-                Create Account
-              </PrimaryButton>
-            </div>
-          </form>
-
-          <div className="mt-6 pt-5 border-t border-purple-50 dark:border-purple-900/40 text-center text-sm text-ink-secondary dark:text-purple-200/80">
-            Already have an account?{' '}
+    <div className="min-h-screen bg-surface-alt dark:bg-[#0C0917] transition-colors duration-200 flex flex-col justify-center px-4 py-8 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md lg:max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+        {/* Left Column (Brand & Community Values on Laptop/Desktop) */}
+        <div className="lg:col-span-5 mb-6 lg:mb-0 text-center lg:text-left">
+          {/* Back to Login link */}
+          <div className="mb-4">
             <Link
               to="/login"
-              className="font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white transition-colors inline-flex items-center gap-1 hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white transition-colors py-1.5 px-2.5 rounded-lg hover:bg-primary-soft/60 dark:hover:bg-purple-900/40"
             >
-              Log In
+              <ArrowLeft size={16} /> Back to Log In
             </Link>
+          </div>
+
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-gradient-to-tr from-accent to-primary text-white shadow-float mb-4">
+            <span className="text-xl sm:text-2xl font-black tracking-tight">SB</span>
+          </div>
+
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-white leading-tight">
+            Create Your <span className="text-primary dark:text-primary-light">Sakhi</span> Account
+          </h1>
+          <p className="mt-2 text-sm sm:text-base text-ink-secondary dark:text-purple-200/80 max-w-sm mx-auto lg:mx-0 leading-relaxed">
+            Join thousands of women in a secure, supportive, and verified emergency circle.
+          </p>
+
+          {/* Desktop Value Highlights */}
+          <div className="hidden lg:block space-y-3.5 mt-8 max-w-sm">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40">
+              <CheckCircle size={18} className="text-emerald-500 shrink-0" />
+              <span className="text-xs text-ink dark:text-white font-medium">Free verified emergency guardian notifications</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40">
+              <ShieldCheck size={18} className="text-primary shrink-0" />
+              <span className="text-xs text-ink dark:text-white font-medium">End-to-end data encryption for your contact details</span>
+            </div>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40">
+              <Heart size={18} className="text-accent shrink-0" />
+              <span className="text-xs text-ink dark:text-white font-medium">Safe anonymous peer circles & verified helplines</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column (Form Card) */}
+        <div className="lg:col-span-7 w-full">
+          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-float">
+            {serverError && (
+              <div
+                className="mb-5 p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm flex items-start gap-2.5 animate-in fade-in"
+                role="alert"
+              >
+                <AlertCircle size={18} className="shrink-0 mt-0.5 text-red-600 dark:text-red-400" />
+                <span>{serverError}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InputField
+                  id="signup-name"
+                  name="name"
+                  type="text"
+                  label="Full Name"
+                  placeholder="e.g. Priya Sharma"
+                  value={formData.name}
+                  onChange={handleChange}
+                  error={errors.name}
+                  autoComplete="name"
+                  icon={User}
+                  required
+                />
+
+                <InputField
+                  id="signup-email"
+                  name="email"
+                  type="email"
+                  label="Email Address"
+                  placeholder="priya@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={errors.email}
+                  autoComplete="email"
+                  inputMode="email"
+                  icon={Mail}
+                  required
+                />
+              </div>
+
+              <InputField
+                id="signup-phone"
+                name="phone"
+                type="tel"
+                label="Phone Number"
+                placeholder="e.g. 98765 43210"
+                value={formData.phone}
+                onChange={handleChange}
+                error={errors.phone}
+                autoComplete="tel"
+                inputMode="tel"
+                icon={Phone}
+                helperText="Used only for emergency SOS alert verification"
+                required
+              />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InputField
+                  id="signup-password"
+                  name="password"
+                  type="password"
+                  label="Create Password"
+                  placeholder="At least 6 characters"
+                  value={formData.password}
+                  onChange={handleChange}
+                  error={errors.password}
+                  autoComplete="new-password"
+                  icon={Lock}
+                  required
+                />
+
+                <InputField
+                  id="signup-confirm-password"
+                  name="confirmPassword"
+                  type="password"
+                  label="Confirm Password"
+                  placeholder="Re-enter your password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  error={errors.confirmPassword}
+                  autoComplete="new-password"
+                  icon={Lock}
+                  required
+                />
+              </div>
+
+              <div className="pt-2">
+                <PrimaryButton
+                  type="submit"
+                  variant="accent"
+                  size="lg"
+                  isLoading={isLoading}
+                  fullWidth
+                >
+                  Create Account
+                </PrimaryButton>
+              </div>
+            </form>
+
+            <div className="mt-6 pt-5 border-t border-purple-50 dark:border-purple-900/40 text-center text-sm text-ink-secondary dark:text-purple-200/80">
+              Already have an account?{' '}
+              <Link
+                to="/login"
+                className="font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white transition-colors inline-flex items-center gap-1 hover:underline"
+              >
+                Log In
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-

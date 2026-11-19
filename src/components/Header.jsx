@@ -1,59 +1,119 @@
 import React from 'react';
-import { Bell, ShieldCheck } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { Bell, ShieldCheck, Home, Users, ShieldAlert, User, PhoneCall } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 /**
- * Mobile-first Top Header
- * Features brand logo mark, name "SakhiBridge", and status indicator.
+ * Responsive Top Header & Desktop Navigation
+ * Calibrated for both Mobile and Laptop/Desktop viewports:
+ * - On Mobile: Clean brand identity, status badge, notifications & avatar
+ * - On Laptop: Inline desktop navigation bar (Home, Community, Support, Profile),
+ *   quick helpline shortcut, notifications, and active tab highlights.
  */
 export const Header = ({ title, subtitle, showActions = true }) => {
   const { user } = useAuth();
 
+  const navLinks = [
+    { to: '/home', label: 'Home', icon: Home },
+    { to: '/community', label: 'Community', icon: Users },
+    { to: '/support', label: 'Support SOS', icon: ShieldAlert, isSpecial: true },
+    { to: '/profile', label: 'Profile', icon: User }
+  ];
+
   return (
-    <header className="sticky top-0 z-30 w-full bg-white/95 dark:bg-[#191426]/95 backdrop-blur-md border-b border-purple-100/70 dark:border-purple-900/40 transition-colors duration-200">
-      <div className="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-30 w-full bg-white/95 dark:bg-[#161126]/95 backdrop-blur-md border-b border-purple-100/70 dark:border-purple-900/40 transition-colors duration-200">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
         {/* Brand identity */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-brand bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-soft">
-            <span className="text-sm font-bold tracking-tight">SB</span>
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-lg font-bold tracking-tight text-ink dark:text-white">
-                Sakhi<span className="text-primary dark:text-primary-light">Bridge</span>
-              </span>
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
-                <ShieldCheck size={11} /> Safe
-              </span>
+        <div className="flex items-center gap-3 shrink-0">
+          <NavLink to="/home" className="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-xl">
+            <div className="w-10 h-10 rounded-brand bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-soft">
+              <span className="text-sm font-bold tracking-tight">SB</span>
             </div>
-            {subtitle ? (
-              <p className="text-[11px] text-ink-muted dark:text-purple-300/70 leading-tight">{subtitle}</p>
-            ) : (
-              <p className="text-[11px] text-ink-muted dark:text-purple-300/70 leading-tight">Together, for every woman</p>
-            )}
-          </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-lg sm:text-xl font-bold tracking-tight text-ink dark:text-white">
+                  Sakhi<span className="text-primary dark:text-primary-light">Bridge</span>
+                </span>
+                <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+                  <ShieldCheck size={11} /> Safe
+                </span>
+              </div>
+              <p className="text-[11px] text-ink-muted dark:text-purple-300/70 leading-tight hidden sm:block">
+                {subtitle || 'Together, for every woman'}
+              </p>
+            </div>
+          </NavLink>
         </div>
 
-        {/* Action icons / User preview */}
+        {/* Desktop Navigation Links (Calibrated for Laptop / Desktop Viewports) */}
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2" aria-label="Desktop Primary Navigation">
+          {navLinks.map((item) => {
+            const Icon = item.icon;
+            return (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => `
+                  inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs lg:text-sm font-semibold transition-all duration-150 select-none min-h-[40px] focus:outline-none focus:ring-2 focus:ring-primary-300
+                  ${
+                    item.isSpecial
+                      ? isActive
+                        ? 'bg-sos text-white shadow-sm'
+                        : 'bg-red-50 dark:bg-red-950/40 text-sos dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/50'
+                      : isActive
+                        ? 'bg-primary-soft dark:bg-purple-950/70 text-primary dark:text-primary-light shadow-xs'
+                        : 'text-ink-secondary dark:text-purple-200/80 hover:text-ink dark:hover:text-white hover:bg-surface-alt dark:hover:bg-purple-900/30'
+                  }
+                `}
+              >
+                <Icon size={16} />
+                <span>{item.label}</span>
+                {item.isSpecial && (
+                  <span className="w-2 h-2 rounded-full bg-sos animate-ping inline-block" aria-hidden="true" />
+                )}
+              </NavLink>
+            );
+          })}
+        </nav>
+
+        {/* Action icons / Quick Helpline / User profile */}
         {showActions && (
-          <div className="flex items-center gap-2 pr-36 sm:pr-0">
+          <div className="flex items-center gap-2 sm:gap-3 pr-36 md:pr-40 shrink-0">
+            {/* Quick Helpline link on tablet/laptop */}
+            <a
+              href="tel:1091"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 dark:bg-[#221A36] text-primary dark:text-primary-light hover:bg-purple-100 dark:hover:bg-[#2C2245] text-xs font-bold border border-purple-100 dark:border-purple-800/40 transition-colors"
+              title="Call National Women Helpline 1091"
+            >
+              <PhoneCall size={13} />
+              <span>1091 Helpline</span>
+            </a>
+
+            {/* Notification button */}
             <button
               type="button"
               className="w-9 h-9 rounded-full flex items-center justify-center text-ink-muted dark:text-purple-300 hover:text-ink dark:hover:text-white hover:bg-surface-alt dark:hover:bg-purple-900/30 transition-colors relative min-h-touch min-w-touch"
               aria-label="Notifications"
-              onClick={() => alert('Notifications: All safety systems are operational.')}
+              onClick={() => alert('Notifications: All safety systems and guardian circles are operational.')}
             >
               <Bell size={18} />
-              <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-accent ring-2 ring-white dark:ring-[#191426]" />
+              <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-accent ring-2 ring-white dark:ring-[#161126]" />
             </button>
 
+            {/* User profile avatar & name chip */}
             {user && (
-              <div
-                className="w-8 h-8 rounded-full bg-primary-soft dark:bg-[#2A2242] text-primary-dark dark:text-purple-200 font-semibold text-xs flex items-center justify-center border border-primary-200 dark:border-purple-700/60"
-                title={user.name}
+              <NavLink
+                to="/profile"
+                className="flex items-center gap-2 pl-2 sm:border-l sm:border-purple-100 dark:sm:border-purple-900/40 hover:opacity-90 transition-opacity"
+                title={`Logged in as ${user.name}`}
               >
-                {user.avatar || 'SB'}
-              </div>
+                <div className="w-8 h-8 rounded-full bg-primary-soft dark:bg-[#2A2242] text-primary-dark dark:text-purple-200 font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-purple-700/60 shadow-xs">
+                  {user.avatar || 'SB'}
+                </div>
+                <span className="hidden sm:inline-block text-xs font-semibold text-ink dark:text-white max-w-[100px] truncate">
+                  {user.name}
+                </span>
+              </NavLink>
             )}
           </div>
         )}
@@ -61,4 +121,3 @@ export const Header = ({ title, subtitle, showActions = true }) => {
     </header>
   );
 };
-

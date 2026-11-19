@@ -142,7 +142,7 @@ describe('SakhiBridge Core Application Flow', () => {
     renderWithRouter('/profile');
 
     await waitFor(() => {
-      expect(screen.getByText(/Priya Sharma/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/Priya Sharma/i).length).toBeGreaterThan(0);
     });
 
     // Click Log Out button

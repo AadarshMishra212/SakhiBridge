@@ -4,15 +4,14 @@ import { Header } from './Header';
 import { BottomNav } from './BottomNav';
 
 /**
- * AppLayout wraps all protected pages with:
- * - Top header (SakhiBridge logo & status)
- * - Main content container (mobile-first 360-430px optimized, centered on desktop)
- * - Fixed bottom navigation bar with 4 tabs
+ * Responsive AppLayout:
+ * - On Mobile: Full mobile-first interface with sticky header and fixed bottom navigation bar
+ * - On Laptop/Desktop: Spacious, calibrated web application with top desktop navigation,
+ *   full-width responsive container (max-w-7xl), multi-column grids, and clean layout hierarchy.
  */
 export const AppLayout = () => {
   const location = useLocation();
 
-  // Custom subtitles based on active route
   const getSubtitle = () => {
     switch (location.pathname) {
       case '/home':
@@ -29,21 +28,17 @@ export const AppLayout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 sm:bg-[#F5F2F9] dark:bg-[#08060F] dark:sm:bg-[#08060F] transition-colors duration-200 flex flex-col items-center justify-start sm:py-4">
-      {/* Centered mobile shell container */}
-      <div className="w-full max-w-md min-h-screen sm:min-h-[844px] bg-surface-alt dark:bg-[#0F0C1B] flex flex-col relative sm:rounded-3xl sm:border sm:border-purple-100/80 dark:sm:border-purple-900/40 sm:shadow-float overflow-hidden transition-colors duration-200">
-        {/* Top Header */}
-        <Header subtitle={getSubtitle()} />
+    <div className="min-h-screen bg-surface-alt dark:bg-[#0C0917] transition-colors duration-200 flex flex-col">
+      {/* Top Header & Desktop Navigation */}
+      <Header subtitle={getSubtitle()} />
 
-        {/* Scrollable Page Content */}
-        <main className="flex-1 px-4 pt-4 pb-24 overflow-y-auto overscroll-contain">
-          <Outlet />
-        </main>
+      {/* Main Responsive Content Area (Full calibrated desktop container) */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 lg:py-8 pb-24 md:pb-8">
+        <Outlet />
+      </main>
 
-        {/* Fixed Bottom Navigation (4 tabs) */}
-        <BottomNav />
-      </div>
+      {/* Fixed Bottom Navigation (Mobile Viewports Only: hidden on md and above) */}
+      <BottomNav />
     </div>
   );
 };
-
