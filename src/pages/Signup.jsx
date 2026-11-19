@@ -92,7 +92,7 @@ export const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface-alt dark:bg-[#0C0917] transition-colors duration-200 flex flex-col justify-center px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-surface-alt dark:bg-[#140C12] transition-colors duration-200 flex flex-col justify-center px-4 py-8 sm:px-6 lg:px-8">
       <div className="w-full max-w-md lg:max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
         {/* Left Column (Brand & Community Values on Laptop/Desktop) */}
         <div className="lg:col-span-5 mb-6 lg:mb-0 text-center lg:text-left">
@@ -100,43 +100,43 @@ export const Signup = () => {
           <div className="mb-4">
             <Link
               to="/login"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white transition-colors py-1.5 px-2.5 rounded-lg hover:bg-primary-soft/60 dark:hover:bg-purple-900/40"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace transition-colors py-1.5 px-2.5 rounded-lg hover:bg-primary-soft/60 dark:hover:bg-[#331F2D]"
             >
               <ArrowLeft size={16} /> Back to Log In
             </Link>
           </div>
 
-          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-gradient-to-tr from-accent to-primary text-white shadow-float mb-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-gradient-to-tr from-accent to-primary text-lace shadow-float mb-4">
             <span className="text-xl sm:text-2xl font-black tracking-tight">SB</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-white leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-lace leading-tight">
             Create Your <span className="text-primary dark:text-primary-light">Sakhi</span> Account
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-ink-secondary dark:text-purple-200/80 max-w-sm mx-auto lg:mx-0 leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-ink-secondary dark:text-lace/80 max-w-sm mx-auto lg:mx-0 leading-relaxed">
             Join thousands of women in a secure, supportive, and verified emergency circle.
           </p>
 
           {/* Desktop Value Highlights */}
           <div className="hidden lg:block space-y-3.5 mt-8 max-w-sm">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D]">
               <CheckCircle size={18} className="text-emerald-500 shrink-0" />
-              <span className="text-xs text-ink dark:text-white font-medium">Free verified emergency guardian notifications</span>
+              <span className="text-xs text-ink dark:text-lace font-medium">Free verified emergency guardian notifications</span>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D]">
               <ShieldCheck size={18} className="text-primary shrink-0" />
-              <span className="text-xs text-ink dark:text-white font-medium">End-to-end data encryption for your contact details</span>
+              <span className="text-xs text-ink dark:text-lace font-medium">End-to-end data encryption for your contact details</span>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D]">
               <Heart size={18} className="text-accent shrink-0" />
-              <span className="text-xs text-ink dark:text-white font-medium">Safe anonymous peer circles & verified helplines</span>
+              <span className="text-xs text-ink dark:text-lace font-medium">Safe anonymous peer circles & verified helplines</span>
             </div>
           </div>
         </div>
 
         {/* Right Column (Form Card) */}
         <div className="lg:col-span-7 w-full">
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-float">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-float">
             {serverError && (
               <div
                 className="mb-5 p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm flex items-start gap-2.5 animate-in fade-in"
@@ -228,7 +228,7 @@ export const Signup = () => {
               <div className="pt-2">
                 <PrimaryButton
                   type="submit"
-                  variant="accent"
+                  variant="primary"
                   size="lg"
                   isLoading={isLoading}
                   fullWidth
@@ -238,11 +238,11 @@ export const Signup = () => {
               </div>
             </form>
 
-            <div className="mt-6 pt-5 border-t border-purple-50 dark:border-purple-900/40 text-center text-sm text-ink-secondary dark:text-purple-200/80">
+            <div className="mt-6 pt-5 border-t border-primary-100 dark:border-[#3A1F2D] text-center text-sm text-ink-secondary dark:text-lace/80">
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white transition-colors inline-flex items-center gap-1 hover:underline"
+                className="font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace transition-colors inline-flex items-center gap-1 hover:underline"
               >
                 Log In
               </Link>

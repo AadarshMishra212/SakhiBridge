@@ -80,50 +80,50 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface-alt dark:bg-[#0C0917] transition-colors duration-200 flex flex-col justify-center px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-surface-alt dark:bg-[#140C12] transition-colors duration-200 flex flex-col justify-center px-4 py-8 sm:px-6 lg:px-8">
       <div className="w-full max-w-md lg:max-w-5xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
         {/* Left Column (Brand Showcase on Laptop/Desktop, Compact on Mobile) */}
         <div className="lg:col-span-6 mb-8 lg:mb-0 text-center lg:text-left">
-          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-primary to-accent text-white shadow-float mb-4 sm:mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-primary to-accent text-lace shadow-float mb-4 sm:mb-6">
             <span className="text-2xl sm:text-3xl font-black tracking-tight">SB</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-white leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-lace leading-tight">
             Welcome to <span className="text-primary dark:text-primary-light">SakhiBridge</span>
           </h1>
-          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-ink-secondary dark:text-purple-200/80 max-w-md mx-auto lg:mx-0 leading-relaxed">
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-ink-secondary dark:text-lace/80 max-w-md mx-auto lg:mx-0 leading-relaxed">
             Your safe companion, community, and emergency support bridge.
           </p>
 
           {/* Desktop Feature Highlights (Calibrated for Laptop viewports) */}
           <div className="hidden lg:grid grid-cols-1 gap-3.5 mt-8 max-w-md">
-            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40 shadow-xs">
+            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] shadow-xs">
               <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/60 text-sos flex items-center justify-center shrink-0">
                 <Radio size={20} className="animate-pulse" />
               </div>
               <div className="text-left">
-                <span className="text-xs font-bold text-ink dark:text-white block">1-Tap Emergency SOS</span>
-                <span className="text-[11px] text-ink-muted dark:text-purple-300/70">Instant live location broadcast to 3 guardians</span>
+                <span className="text-xs font-bold text-ink dark:text-lace block">1-Tap Emergency SOS</span>
+                <span className="text-[11px] text-ink-muted dark:text-lace/70">Instant live location broadcast to 3 guardians</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40 shadow-xs">
-              <div className="w-10 h-10 rounded-xl bg-primary-soft dark:bg-purple-950/60 text-primary dark:text-primary-light flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light flex items-center justify-center shrink-0">
                 <Heart size={20} />
               </div>
               <div className="text-left">
-                <span className="text-xs font-bold text-ink dark:text-white block">Anonymous Sisterhood</span>
-                <span className="text-[11px] text-ink-muted dark:text-purple-300/70">Safe peer sharing, verified commute stories & guidance</span>
+                <span className="text-xs font-bold text-ink dark:text-lace block">Anonymous Sisterhood</span>
+                <span className="text-[11px] text-ink-muted dark:text-lace/70">Safe peer sharing, verified commute stories & guidance</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/70 dark:bg-[#161126] border border-purple-100/70 dark:border-purple-900/40 shadow-xs">
+            <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] shadow-xs">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                 <Scale size={20} />
               </div>
               <div className="text-left">
-                <span className="text-xs font-bold text-ink dark:text-white block">Free Legal & Helpline Access</span>
-                <span className="text-[11px] text-ink-muted dark:text-purple-300/70">24/7 National Women Helpline (1091) and PoSH guide</span>
+                <span className="text-xs font-bold text-ink dark:text-lace block">Free Legal & Helpline Access</span>
+                <span className="text-[11px] text-ink-muted dark:text-lace/70">24/7 National Women Helpline (1091) and PoSH guide</span>
               </div>
             </div>
           </div>
@@ -132,24 +132,24 @@ export const Login = () => {
         {/* Right Column (Form Card) */}
         <div className="lg:col-span-6 w-full">
           {/* Quick Demo Credentials Chip */}
-          <div className="mb-4 bg-primary-soft/90 dark:bg-[#1E1733] border border-primary-200/80 dark:border-purple-800/60 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
-            <div className="text-xs text-ink-secondary dark:text-purple-200 flex items-center gap-2">
+          <div className="mb-4 bg-primary-soft/90 dark:bg-[#281823] border border-primary-200/80 dark:border-[#4C293C] rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+            <div className="text-xs text-ink-secondary dark:text-lace/90 flex items-center gap-2">
               <Sparkles size={16} className="text-primary dark:text-primary-light shrink-0" />
               <span>
-                Demo user ready: <strong className="text-primary-dark dark:text-white font-semibold">demo@sakhibridge.org</strong>
+                Demo user ready: <strong className="text-primary-dark dark:text-lace font-semibold">demo@sakhibridge.org</strong>
               </span>
             </div>
             <button
               type="button"
               onClick={handleFillDemo}
-              className="text-xs font-bold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white underline decoration-2 underline-offset-2 shrink-0 py-1 px-2.5 rounded-lg hover:bg-white/70 dark:hover:bg-purple-900/50 transition-colors"
+              className="text-xs font-bold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace underline decoration-2 underline-offset-2 shrink-0 py-1 px-2.5 rounded-lg hover:bg-white/70 dark:hover:bg-[#331F2D] transition-colors"
             >
               Auto-fill
             </button>
           </div>
 
           {/* Login Card */}
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-float">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-float">
             {serverError && (
               <div
                 className="mb-5 p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm flex items-start gap-2.5 animate-in fade-in"
@@ -194,7 +194,7 @@ export const Login = () => {
                   <button
                     type="button"
                     onClick={() => setShowForgotModal(true)}
-                    className="text-xs font-medium text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-white hover:underline py-1 transition-colors"
+                    className="text-xs font-medium text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace hover:underline py-1 transition-colors"
                   >
                     Forgot password?
                   </button>
@@ -215,7 +215,7 @@ export const Login = () => {
             </form>
 
             {/* Create Account link */}
-            <div className="mt-6 pt-5 border-t border-purple-50 dark:border-purple-900/40 text-center text-sm text-ink-secondary dark:text-purple-200/80">
+            <div className="mt-6 pt-5 border-t border-primary-100 dark:border-[#3A1F2D] text-center text-sm text-ink-secondary dark:text-lace/80">
               Don't have an account?{' '}
               <Link
                 to="/signup"
@@ -227,7 +227,7 @@ export const Login = () => {
           </div>
 
           {/* Footer help */}
-          <div className="mt-5 text-center text-xs text-ink-muted dark:text-purple-300/60">
+          <div className="mt-5 text-center text-xs text-ink-muted dark:text-lace/70">
             Need urgent help?{' '}
             <span className="font-semibold text-sos">Call 1091 (Women Helpline)</span>
           </div>
@@ -244,7 +244,7 @@ export const Login = () => {
         onConfirm={() => setShowForgotModal(false)}
         icon={Mail}
       >
-        <p className="text-sm text-ink-secondary dark:text-purple-200/80 leading-relaxed">
+        <p className="text-sm text-ink-secondary dark:text-lace/80 leading-relaxed">
           In this mock front-end environment, password reset emails are not sent. You can test
           logging in with the default demo account (<strong>demo@sakhibridge.org</strong> / <strong>password123</strong>)
           or create a new account in seconds on the Sign Up page.

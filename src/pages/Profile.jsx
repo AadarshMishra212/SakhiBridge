@@ -100,14 +100,14 @@ export const Profile = () => {
   return (
     <div className="space-y-6 pb-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-1 border-b border-purple-100/60 dark:border-purple-900/40">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-1 border-b border-primary-100/60 dark:border-[#3A1F2D]">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-white">Account & Safety Settings</h1>
-          <p className="text-xs sm:text-sm text-ink-secondary dark:text-purple-200/70 mt-0.5">
+          <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-lace">Account & Safety Settings</h1>
+          <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/70 mt-0.5">
             Manage your verified identity, emergency circle contacts, and personal preferences.
           </p>
         </div>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-soft dark:bg-[#201833] text-primary dark:text-primary-light text-xs font-semibold w-fit">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light text-xs font-semibold w-fit">
           <ShieldCheck size={14} /> Security Tier: Verified Citizen
         </div>
       </div>
@@ -117,24 +117,24 @@ export const Profile = () => {
         {/* Left Column (Profile Identity Card & Contact Details) */}
         <div className="lg:col-span-5 space-y-5">
           {/* Profile Overview Card */}
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl sm:rounded-3xl p-6 shadow-soft text-center relative overflow-hidden transition-colors">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-6 shadow-soft text-center relative overflow-hidden transition-colors">
             {/* Soft decorative background ribbon */}
-            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-primary-100/70 to-accent-100/70 dark:from-purple-950/70 dark:to-pink-950/70" />
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-primary-100/70 to-accent-100/70 dark:from-[#281823] dark:to-[#331F2D]" />
 
             <div className="relative z-10 flex flex-col items-center">
               {/* Avatar with initials */}
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-accent text-white font-bold text-2xl flex items-center justify-center shadow-float border-4 border-white dark:border-[#161126] mb-3">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-accent text-lace font-black text-2xl flex items-center justify-center shadow-float border-4 border-white dark:border-[#1E121A] mb-3">
                 {user?.avatar || 'SB'}
               </div>
 
-              <h2 className="text-lg sm:text-xl font-bold text-ink dark:text-white">{user?.name || 'Sakhi Member'}</h2>
-              <p className="text-xs sm:text-sm text-ink-muted dark:text-purple-300/70 mt-0.5">{user?.email || 'user@example.com'}</p>
+              <h2 className="text-lg sm:text-xl font-bold text-ink dark:text-lace">{user?.name || 'Sakhi Member'}</h2>
+              <p className="text-xs sm:text-sm text-ink-muted dark:text-lace/70 mt-0.5">{user?.email || 'user@example.com'}</p>
 
               <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary dark:text-primary-light bg-primary-soft dark:bg-[#2B2342] px-3 py-1 rounded-full border border-primary-200 dark:border-purple-700/60">
+                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary dark:text-primary-light bg-primary-soft dark:bg-[#281823] px-3 py-1 rounded-full border border-primary-200 dark:border-[#4C293C]">
                   <ShieldCheck size={13} /> Verified Citizen
                 </span>
-                <span className="inline-flex items-center gap-1 text-[11px] text-ink-muted dark:text-purple-300/70 bg-surface-alt dark:bg-[#201A30] px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 text-[11px] text-ink-muted dark:text-lace/70 bg-surface-alt dark:bg-[#24151F] px-3 py-1 rounded-full">
                   <Calendar size={12} /> Member since {formattedDate}
                 </span>
               </div>
@@ -142,7 +142,7 @@ export const Profile = () => {
               <button
                 type="button"
                 onClick={handleOpenEdit}
-                className="mt-4 px-4 py-2.5 rounded-xl bg-purple-50 dark:bg-[#2B2342] hover:bg-purple-100 dark:hover:bg-[#342A50] text-primary dark:text-primary-light text-xs font-semibold transition-colors flex items-center gap-2 min-h-[40px]"
+                className="mt-4 px-4 py-2.5 rounded-xl bg-primary-soft dark:bg-[#281823] hover:bg-primary-100 dark:hover:bg-[#331F2D] text-primary dark:text-primary-light text-xs font-semibold transition-colors flex items-center gap-2 min-h-[40px]"
               >
                 <Edit3 size={15} /> Edit Contact Info
               </button>
@@ -150,25 +150,25 @@ export const Profile = () => {
           </div>
 
           {/* Account Info Details */}
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl p-5 shadow-soft space-y-3.5 text-left transition-colors">
-            <h3 className="text-xs font-bold text-ink-muted dark:text-purple-300/70 uppercase tracking-wider">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 shadow-soft space-y-3.5 text-left transition-colors">
+            <h3 className="text-xs font-bold text-ink-muted dark:text-lace/70 uppercase tracking-wider">
               Emergency Contact Record
             </h3>
 
-            <div className="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-purple-50 dark:border-purple-900/40">
-              <div className="flex items-center gap-2.5 text-ink-secondary dark:text-purple-200/80">
+            <div className="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-primary-100 dark:border-[#3A1F2D]">
+              <div className="flex items-center gap-2.5 text-ink-secondary dark:text-lace/80">
                 <Mail size={16} className="text-primary dark:text-primary-light shrink-0" />
                 <span>Primary Email</span>
               </div>
-              <span className="font-semibold text-ink dark:text-white truncate max-w-[180px]">{user?.email}</span>
+              <span className="font-semibold text-ink dark:text-lace truncate max-w-[180px]">{user?.email}</span>
             </div>
 
             <div className="flex items-center justify-between text-xs sm:text-sm py-2">
-              <div className="flex items-center gap-2.5 text-ink-secondary dark:text-purple-200/80">
+              <div className="flex items-center gap-2.5 text-ink-secondary dark:text-lace/80">
                 <Phone size={16} className="text-accent shrink-0" />
                 <span>Alert Phone</span>
               </div>
-              <span className="font-semibold text-ink dark:text-white font-mono">{user?.phone || 'Not provided'}</span>
+              <span className="font-semibold text-ink dark:text-lace font-mono">{user?.phone || 'Not provided'}</span>
             </div>
           </div>
 
@@ -185,7 +185,7 @@ export const Profile = () => {
             >
               Log Out of SakhiBridge
             </PrimaryButton>
-            <p className="text-center text-[11px] text-ink-muted dark:text-purple-300/60 mt-2">
+            <p className="text-center text-[11px] text-ink-muted dark:text-lace/60 mt-2">
               SakhiBridge v1.0.0 • Mobile & Laptop Calibrated
             </p>
           </div>
@@ -194,21 +194,21 @@ export const Profile = () => {
         {/* Right Column (Safety Preferences & Privacy Settings) */}
         <div className="lg:col-span-7 space-y-5">
           {/* Safety & App Preferences */}
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl p-5 sm:p-6 shadow-soft space-y-4 text-left transition-colors">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 sm:p-6 shadow-soft space-y-4 text-left transition-colors">
             <div>
-              <h3 className="text-sm sm:text-base font-bold text-ink dark:text-white">
+              <h3 className="text-sm sm:text-base font-bold text-ink dark:text-lace">
                 Safety & Emergency Automation
               </h3>
-              <p className="text-xs text-ink-muted dark:text-purple-300/70 mt-0.5">
+              <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
                 Customize how emergency distress signals are triggered and shared
               </p>
             </div>
 
-            <div className="divide-y divide-purple-50 dark:divide-purple-900/40">
+            <div className="divide-y divide-primary-100 dark:divide-[#3A1F2D]">
               <div className="flex items-center justify-between py-3.5">
                 <div className="pr-4">
-                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-white">Live Guardian GPS Location Sharing</h4>
-                  <p className="text-xs text-ink-muted dark:text-purple-300/70 mt-0.5">
+                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-lace">Live Guardian GPS Location Sharing</h4>
+                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
                     Automatically transmit real-time GPS coordinates when SOS is triggered or during emergency transit.
                   </p>
                 </div>
@@ -232,8 +232,8 @@ export const Profile = () => {
 
               <div className="flex items-center justify-between py-3.5">
                 <div className="pr-4">
-                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-white">Shake Phone to Trigger SOS</h4>
-                  <p className="text-xs text-ink-muted dark:text-purple-300/70 mt-0.5">
+                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-lace">Shake Phone to Trigger SOS</h4>
+                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
                     Trigger distress alarm silently when phone accelerometer detects rapid agitation.
                   </p>
                 </div>
@@ -257,8 +257,8 @@ export const Profile = () => {
 
               <div className="flex items-center justify-between py-3.5">
                 <div className="pr-4">
-                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-white">Anonymous Community Mode</h4>
-                  <p className="text-xs text-ink-muted dark:text-purple-300/70 mt-0.5">
+                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-lace">Anonymous Community Mode</h4>
+                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
                     Mask your name automatically as "Anonymous Sakhi" on stories, queries, and comments.
                   </p>
                 </div>
@@ -283,12 +283,12 @@ export const Profile = () => {
           </div>
 
           {/* Privacy & Device Security Card */}
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl p-5 sm:p-6 shadow-soft space-y-3 text-left transition-colors">
-            <h3 className="text-sm font-bold text-ink dark:text-white flex items-center gap-2">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 sm:p-6 shadow-soft space-y-3 text-left transition-colors">
+            <h3 className="text-sm font-bold text-ink dark:text-lace flex items-center gap-2">
               <Lock size={16} className="text-primary dark:text-primary-light" />
               Privacy & Encryption Shield
             </h3>
-            <p className="text-xs text-ink-secondary dark:text-purple-200/80 leading-relaxed">
+            <p className="text-xs text-ink-secondary dark:text-lace/80 leading-relaxed">
               All personal details, guardian contact numbers, and panic logs are encrypted using client-side protection before storage. SakhiBridge never sells user data or location telemetry to third parties.
             </p>
           </div>

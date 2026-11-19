@@ -22,8 +22,8 @@ export const ThemeToggle = ({ className = '' }) => {
       <div
         className={`flex items-center p-1 rounded-full border shadow-float backdrop-blur-md transition-all duration-200 min-h-[44px] ${
           isDark
-            ? 'bg-[#181229]/95 border-purple-500/50 shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
-            : 'bg-white/95 border-purple-200 shadow-[0_4px_20px_rgba(123,79,214,0.15)]'
+            ? 'bg-[#1E121A]/95 border-primary/40 shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
+            : 'bg-white/95 border-primary-200 shadow-[0_4px_20px_rgba(254,145,121,0.2)]'
         }`}
       >
         {/* Light Mode Button */}
@@ -35,8 +35,8 @@ export const ThemeToggle = ({ className = '' }) => {
           title="Switch to light mode"
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 min-h-[36px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 ${
             !isDark
-              ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-white shadow-sm scale-100'
-              : 'text-purple-300 hover:text-white opacity-70 hover:opacity-100'
+              ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-[#1E121A] shadow-sm scale-100'
+              : 'text-lace/80 hover:text-lace opacity-80 hover:opacity-100'
           }`}
         >
           <Sun size={15} className={!isDark ? 'rotate-0' : '-rotate-45'} aria-hidden="true" />
@@ -52,7 +52,7 @@ export const ThemeToggle = ({ className = '' }) => {
           title="Switch to dark mode"
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 min-h-[36px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 ${
             isDark
-              ? 'bg-gradient-to-r from-primary to-purple-600 text-white shadow-sm scale-100'
+              ? 'bg-gradient-to-r from-primary to-[#C55A44] text-[#140C12] font-black shadow-sm scale-100'
               : 'text-ink-secondary hover:text-ink opacity-70 hover:opacity-100'
           }`}
         >

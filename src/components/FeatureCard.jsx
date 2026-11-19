@@ -30,7 +30,7 @@ export const FeatureCard = ({
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={onClick ? (e) => e.key === 'Enter' && onClick() : undefined}
-      className={`group relative bg-white dark:bg-[#191426] border border-purple-100/80 dark:border-purple-900/50 rounded-brand p-5 shadow-soft transition-all duration-200 hover:shadow-float hover:border-purple-200 dark:hover:border-purple-700 active:scale-[0.99] text-left ${
+      className={`group relative bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-brand p-5 shadow-soft transition-all duration-200 hover:shadow-float hover:border-primary-300 dark:hover:border-primary-600 active:scale-[0.99] text-left ${
         onClick ? 'cursor-pointer' : ''
       } ${className}`}
     >
@@ -46,15 +46,15 @@ export const FeatureCard = ({
         )}
       </div>
 
-      <h3 className="text-base font-semibold text-ink dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
+      <h3 className="text-base font-semibold text-ink dark:text-lace group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
         {title}
       </h3>
       
-      <p className="mt-1 text-sm text-ink-secondary dark:text-purple-200/70 leading-relaxed line-clamp-2">
+      <p className="mt-1 text-sm text-ink-secondary dark:text-lace/70 leading-relaxed line-clamp-2">
         {description}
       </p>
 
-      <div className="mt-4 pt-3 border-t border-purple-50 dark:border-purple-900/40 flex items-center justify-between text-xs font-semibold text-primary dark:text-primary-light">
+      <div className="mt-4 pt-3 border-t border-primary-100 dark:border-[#3A1F2D] flex items-center justify-between text-xs font-semibold text-primary dark:text-primary-light">
         <span>{actionText}</span>
         <ChevronRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
       </div>

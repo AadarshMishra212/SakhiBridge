@@ -24,17 +24,17 @@ export const PrimaryButton = ({
 
   const variants = {
     primary:
-      'bg-primary hover:bg-primary-dark text-white shadow-soft hover:shadow-float focus:ring-primary-500',
+      'bg-gradient-to-r from-primary via-primary-dark to-[#B8503C] hover:brightness-105 text-lace font-bold shadow-soft hover:shadow-float focus:ring-primary-400',
     accent:
       'bg-accent hover:bg-accent-dark text-white shadow-soft focus:ring-accent-500',
     danger:
       'bg-sos hover:bg-sos-dark text-white shadow-soft focus:ring-red-500',
     secondary:
-      'bg-primary-soft dark:bg-purple-950/60 hover:bg-primary-100 dark:hover:bg-purple-900/80 text-primary-dark dark:text-primary-light font-semibold border border-primary-200/60 dark:border-purple-800/60 focus:ring-primary-400',
+      'bg-primary-soft dark:bg-[#281823] hover:bg-primary-100 dark:hover:bg-[#331F2D] text-primary-dark dark:text-lace font-semibold border border-primary-200/70 dark:border-primary-800/60 focus:ring-primary-400',
     outline:
-      'bg-transparent hover:bg-surface-alt dark:hover:bg-purple-950/40 text-ink dark:text-white border border-purple-200 dark:border-purple-800/60 hover:border-purple-300 dark:hover:border-purple-700 focus:ring-primary-300',
+      'bg-transparent hover:bg-surface-alt dark:hover:bg-[#281823] text-ink dark:text-lace border border-primary-200 dark:border-primary-800/60 hover:border-primary-300 dark:hover:border-primary-700 focus:ring-primary-300',
     ghost:
-      'bg-transparent hover:bg-primary-soft/60 dark:hover:bg-purple-900/40 text-ink-secondary dark:text-purple-200 hover:text-primary dark:hover:text-white focus:ring-primary-300'
+      'bg-transparent hover:bg-primary-soft/60 dark:hover:bg-[#281823] text-ink-secondary dark:text-lace/80 hover:text-primary dark:hover:text-lace focus:ring-primary-300'
   };
 
   const sizes = {

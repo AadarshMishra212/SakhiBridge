@@ -28,7 +28,7 @@ export const AppLayout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface-alt dark:bg-[#0C0917] transition-colors duration-200 flex flex-col">
+    <div className="min-h-screen bg-surface-alt dark:bg-[#140C12] transition-colors duration-200 flex flex-col">
       {/* Top Header & Desktop Navigation */}
       <Header subtitle={getSubtitle()} />
 

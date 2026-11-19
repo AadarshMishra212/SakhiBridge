@@ -5,7 +5,7 @@ import { Home, Users, ShieldAlert, User } from 'lucide-react';
 /**
  * Mobile-First Fixed Bottom Navigation Bar
  * 4 Core tabs: Home, Community, Support, Profile
- * Active tab highlighted with primary purple, accessible labels and touch-friendly padding.
+ * Active tab highlighted with primary Ballet Slipper, accessible labels and touch-friendly padding.
  */
 export const BottomNav = () => {
   const navItems = [
@@ -34,7 +34,7 @@ export const BottomNav = () => {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 dark:bg-[#191426]/95 backdrop-blur-lg border-t border-purple-100 dark:border-purple-900/40 shadow-nav transition-colors duration-200"
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 dark:bg-[#1E121A]/95 backdrop-blur-lg border-t border-primary-100 dark:border-[#3A1F2D] shadow-nav transition-colors duration-200"
       aria-label="Mobile Navigation"
     >
       <div className="max-w-md mx-auto px-4 py-2 flex items-center justify-around">
@@ -50,7 +50,7 @@ export const BottomNav = () => {
                 ${
                   isActive
                     ? 'text-primary dark:text-primary-light font-semibold'
-                    : 'text-ink-muted dark:text-purple-300/60 hover:text-ink-secondary dark:hover:text-purple-200'
+                    : 'text-ink-muted dark:text-lace/60 hover:text-ink-secondary dark:hover:text-lace'
                 }
               `}
             >
@@ -66,12 +66,12 @@ export const BottomNav = () => {
                         }`}
                       >
                         <Icon size={19} />
-                        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-sos ring-2 ring-white dark:ring-[#191426]" />
+                        <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-sos ring-2 ring-white dark:ring-[#1E121A]" />
                       </div>
                     ) : (
                       <div
                         className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
-                          isActive ? 'bg-primary-soft dark:bg-[#2A2242] text-primary dark:text-primary-light' : ''
+                          isActive ? 'bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light' : ''
                         }`}
                       >
                         <Icon size={20} strokeWidth={isActive ? 2.3 : 1.8} />
@@ -80,7 +80,7 @@ export const BottomNav = () => {
                   </div>
                   <span
                     className={`text-[11px] mt-0.5 tracking-tight ${
-                      isActive ? 'text-primary dark:text-primary-light font-semibold' : 'text-ink-muted dark:text-purple-300/60'
+                      isActive ? 'text-primary dark:text-primary-light font-semibold' : 'text-ink-muted dark:text-lace/60'
                     }`}
                   >
                     {item.label}

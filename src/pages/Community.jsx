@@ -118,15 +118,15 @@ export const Community = () => {
   return (
     <div className="space-y-6 pb-6">
       {/* Top Banner (Responsive Header Bar) */}
-      <div className="bg-gradient-to-r from-accent-soft via-primary-soft to-purple-100/70 dark:from-purple-950/60 dark:via-[#1F1733] dark:to-[#171226] border border-purple-100 dark:border-purple-900/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transition-colors shadow-soft">
+      <div className="bg-gradient-to-r from-accent-soft via-primary-soft to-primary-100/70 dark:from-[#281823] dark:via-[#1E121A] dark:to-[#140C12] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transition-colors shadow-soft">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/70 dark:bg-purple-900/40 text-primary dark:text-primary-light border border-purple-200/50 dark:border-purple-700/50 mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/80 dark:bg-[#281823] text-primary dark:text-primary-light border border-primary-200/50 dark:border-[#4C293C] mb-2">
             <Sparkles size={14} className="text-accent" /> Safe & Anonymous Sisterhood
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-white">
+          <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-lace">
             Sakhi Community Hub
           </h1>
-          <p className="text-xs sm:text-sm text-ink-secondary dark:text-purple-200/70 mt-1 max-w-xl">
+          <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/70 mt-1 max-w-xl">
             A trusted space for sharing verified commute experiences, workplace advice, legal insights, and mutual solidarity.
           </p>
         </div>
@@ -134,7 +134,7 @@ export const Community = () => {
         <button
           type="button"
           onClick={() => setShowCreateModal(true)}
-          className="px-4 sm:px-5 py-2.5 rounded-xl bg-primary text-white text-xs sm:text-sm font-semibold hover:bg-primary-dark transition-all flex items-center justify-center gap-2 shadow-soft shrink-0 min-h-touch active:scale-95"
+          className="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-lace text-xs sm:text-sm font-bold hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-soft shrink-0 min-h-touch active:scale-95"
         >
           <PlusCircle size={17} /> Share Story
         </button>
@@ -152,8 +152,8 @@ export const Community = () => {
                 onClick={() => setActiveCategory(cat.name)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors min-h-[36px] ${
                   activeCategory === cat.name
-                    ? 'bg-primary text-white shadow-soft font-semibold'
-                    : 'bg-white dark:bg-[#161126] text-ink-secondary dark:text-purple-200 border border-purple-100 dark:border-purple-900/50 hover:border-purple-200 dark:hover:border-purple-700'
+                    ? 'bg-gradient-to-r from-primary to-primary-dark text-lace shadow-soft font-bold'
+                    : 'bg-white dark:bg-[#1E121A] text-ink-secondary dark:text-lace/80 border border-primary-100 dark:border-[#3A1F2D] hover:border-primary-200 dark:hover:border-primary-600'
                 }`}
               >
                 {cat.name} ({cat.count})
@@ -162,8 +162,8 @@ export const Community = () => {
           </div>
 
           {/* Desktop Categories Card (Hidden on Mobile) */}
-          <div className="hidden lg:block bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl p-5 shadow-soft">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-ink-muted dark:text-purple-300/70 mb-3 flex items-center gap-1.5">
+          <div className="hidden lg:block bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 shadow-soft">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-ink-muted dark:text-lace/70 mb-3 flex items-center gap-1.5">
               <Filter size={14} /> Topic Circles
             </h2>
             <nav className="space-y-1.5" aria-label="Topic circles">
@@ -173,16 +173,16 @@ export const Community = () => {
                   onClick={() => setActiveCategory(cat.name)}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all text-left min-h-[40px] ${
                     activeCategory === cat.name
-                      ? 'bg-primary text-white shadow-soft'
-                      : 'text-ink-secondary dark:text-purple-200/80 hover:bg-surface-alt dark:hover:bg-[#201833] hover:text-ink dark:hover:text-white'
+                      ? 'bg-gradient-to-r from-primary to-primary-dark text-lace shadow-soft font-bold'
+                      : 'text-ink-secondary dark:text-lace/80 hover:bg-surface-alt dark:hover:bg-[#331F2D] hover:text-ink dark:hover:text-lace'
                   }`}
                 >
                   <span>{cat.name}</span>
                   <span
                     className={`text-[11px] px-2 py-0.5 rounded-full ${
                       activeCategory === cat.name
-                        ? 'bg-white/25 text-white'
-                        : 'bg-purple-50 dark:bg-purple-950/60 text-primary dark:text-primary-light'
+                        ? 'bg-white/25 text-lace'
+                        : 'bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light'
                     }`}
                   >
                     {cat.count}
@@ -193,12 +193,12 @@ export const Community = () => {
           </div>
 
           {/* Community Trust Guidelines */}
-          <div className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl p-5 shadow-soft space-y-3 text-left">
+          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 shadow-soft space-y-3 text-left">
             <div className="flex items-center gap-2 text-primary dark:text-primary-light font-bold text-xs">
               <Shield size={16} />
               <span>Safe Space Standards</span>
             </div>
-            <ul className="text-xs text-ink-secondary dark:text-purple-200/70 space-y-2 leading-relaxed">
+            <ul className="text-xs text-ink-secondary dark:text-lace/70 space-y-2 leading-relaxed">
               <li className="flex items-start gap-2">
                 <Lock size={13} className="text-accent shrink-0 mt-0.5" />
                 <span>Confidential identity: You can post anonymously anytime.</span>
@@ -218,10 +218,10 @@ export const Community = () => {
         {/* Right Feed Column (Feed of Stories) */}
         <div className="lg:col-span-8 space-y-4">
           <div className="flex items-center justify-between px-1">
-            <span className="text-xs font-bold text-ink dark:text-white">
+            <span className="text-xs font-bold text-ink dark:text-lace">
               Showing {filteredPosts.length} posts in <span className="text-primary dark:text-primary-light font-extrabold">{activeCategory}</span>
             </span>
-            <span className="text-xs text-ink-muted dark:text-purple-300/60 flex items-center gap-1">
+            <span className="text-xs text-ink-muted dark:text-lace/60 flex items-center gap-1">
               <TrendingUp size={13} /> Active Circle Feed
             </span>
           </div>
@@ -230,22 +230,22 @@ export const Community = () => {
             {filteredPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-white dark:bg-[#161126] border border-purple-100 dark:border-purple-900/50 rounded-2xl p-5 sm:p-6 shadow-soft transition-all hover:border-purple-200 dark:hover:border-purple-700 text-left"
+                className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 sm:p-6 shadow-soft transition-all hover:border-primary-200 dark:hover:border-primary-600 text-left"
               >
                 {/* Author bar */}
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-primary-soft dark:bg-[#2B2342] text-primary-dark dark:text-purple-200 font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-purple-700/60 shadow-xs">
+                    <div className="w-9 h-9 rounded-full bg-primary-soft dark:bg-[#281823] text-primary-dark dark:text-lace font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-[#4C293C] shadow-xs">
                       {post.author.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs sm:text-sm font-bold text-ink dark:text-white">{post.author}</span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/60 text-primary-dark dark:text-purple-200 border border-purple-100 dark:border-purple-800/60">
+                        <span className="text-xs sm:text-sm font-bold text-ink dark:text-lace">{post.author}</span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary-soft dark:bg-[#281823] text-primary-dark dark:text-lace border border-primary-100 dark:border-[#4C293C]">
                           {post.badge}
                         </span>
                       </div>
-                      <span className="text-[11px] text-ink-muted dark:text-purple-300/60">{post.time}</span>
+                      <span className="text-[11px] text-ink-muted dark:text-lace/60">{post.time}</span>
                     </div>
                   </div>
 
@@ -255,22 +255,22 @@ export const Community = () => {
                 </div>
 
                 {/* Post Title & Content */}
-                <h2 className="text-sm sm:text-base font-bold text-ink dark:text-white mb-2 leading-snug">
+                <h2 className="text-sm sm:text-base font-bold text-ink dark:text-lace mb-2 leading-snug">
                   {post.title}
                 </h2>
-                <p className="text-xs sm:text-sm text-ink-secondary dark:text-purple-200/80 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/80 leading-relaxed mb-4">
                   {post.content}
                 </p>
 
                 {/* Post Actions */}
-                <div className="pt-3 border-t border-purple-50 dark:border-purple-900/40 flex items-center justify-between text-ink-muted dark:text-purple-300/70 text-xs">
+                <div className="pt-3 border-t border-primary-100 dark:border-[#3A1F2D] flex items-center justify-between text-ink-muted dark:text-lace/70 text-xs">
                   <button
                     type="button"
                     onClick={() => toggleLike(post.id)}
                     className={`flex items-center gap-1.5 py-1.5 px-3 rounded-xl transition-colors min-h-[36px] ${
                       post.isLiked
                         ? 'text-accent font-semibold bg-accent-soft/70 dark:bg-pink-950/50'
-                        : 'hover:text-accent hover:bg-surface-alt dark:hover:bg-purple-900/30'
+                        : 'hover:text-accent hover:bg-surface-alt dark:hover:bg-[#331F2D]'
                     }`}
                     aria-label={post.isLiked ? 'Unlike post' : 'Like post'}
                   >
@@ -281,7 +281,7 @@ export const Community = () => {
                   <button
                     type="button"
                     onClick={() => alert(`Opening comments for: ${post.title}`)}
-                    className="flex items-center gap-1.5 py-1.5 px-3 rounded-xl hover:text-primary dark:hover:text-primary-light hover:bg-surface-alt dark:hover:bg-purple-900/30 transition-colors min-h-[36px]"
+                    className="flex items-center gap-1.5 py-1.5 px-3 rounded-xl hover:text-primary dark:hover:text-primary-light hover:bg-surface-alt dark:hover:bg-[#331F2D] transition-colors min-h-[36px]"
                   >
                     <MessageSquare size={16} />
                     <span>{post.comments} Comments</span>
@@ -296,7 +296,7 @@ export const Community = () => {
                         alert('Story link copied to clipboard!');
                       }
                     }}
-                    className="p-2 rounded-xl hover:text-ink dark:hover:text-white hover:bg-surface-alt dark:hover:bg-purple-900/30 transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                    className="p-2 rounded-xl hover:text-ink dark:hover:text-lace hover:bg-surface-alt dark:hover:bg-[#331F2D] transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
                     aria-label="Share post"
                   >
                     <Share2 size={16} />
@@ -320,13 +320,13 @@ export const Community = () => {
       >
         <form onSubmit={handleCreatePost} className="space-y-3.5">
           <div>
-            <label className="block text-xs font-semibold text-ink dark:text-purple-100 mb-1">
+            <label className="block text-xs font-semibold text-ink dark:text-lace mb-1">
               Category Circle
             </label>
             <select
               value={newPost.category}
               onChange={(e) => setNewPost({ ...newPost, category: e.target.value })}
-              className="w-full text-xs min-h-[42px] px-3 py-2 bg-white dark:bg-[#201A30] border border-purple-100 dark:border-purple-800/50 rounded-brand text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-100"
+              className="w-full text-xs min-h-[42px] px-3 py-2 bg-white dark:bg-[#24151F] border border-primary-100 dark:border-[#4C293C] rounded-brand text-ink dark:text-lace focus:outline-none focus:ring-2 focus:ring-primary-100"
             >
               <option value="Safety Tips">Safety Tips</option>
               <option value="Workplace">Workplace</option>
@@ -337,7 +337,7 @@ export const Community = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink dark:text-purple-100 mb-1">
+            <label className="block text-xs font-semibold text-ink dark:text-lace mb-1">
               Story Title
             </label>
             <input
@@ -346,12 +346,12 @@ export const Community = () => {
               value={newPost.title}
               onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
               required
-              className="w-full text-xs min-h-[42px] px-3.5 py-2.5 bg-white dark:bg-[#201A30] border border-purple-100 dark:border-purple-800/50 rounded-brand text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-100 placeholder:text-ink-muted/70 dark:placeholder:text-purple-300/40"
+              className="w-full text-xs min-h-[42px] px-3.5 py-2.5 bg-white dark:bg-[#24151F] border border-primary-100 dark:border-[#4C293C] rounded-brand text-ink dark:text-lace focus:outline-none focus:ring-2 focus:ring-primary-100 placeholder:text-ink-muted/70 dark:placeholder:text-lace/40"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink dark:text-purple-100 mb-1">
+            <label className="block text-xs font-semibold text-ink dark:text-lace mb-1">
               Content & Details
             </label>
             <textarea
@@ -360,7 +360,7 @@ export const Community = () => {
               value={newPost.content}
               onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
               required
-              className="w-full text-xs p-3.5 bg-white dark:bg-[#201A30] border border-purple-100 dark:border-purple-800/50 rounded-brand text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none placeholder:text-ink-muted/70 dark:placeholder:text-purple-300/40"
+              className="w-full text-xs p-3.5 bg-white dark:bg-[#24151F] border border-primary-100 dark:border-[#4C293C] rounded-brand text-ink dark:text-lace focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none placeholder:text-ink-muted/70 dark:placeholder:text-lace/40"
             />
           </div>
         </form>

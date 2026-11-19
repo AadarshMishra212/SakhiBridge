@@ -35,7 +35,7 @@ export const InputField = ({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-ink dark:text-purple-100 mb-1.5"
+          className="block text-sm font-medium text-ink dark:text-lace mb-1.5"
         >
           {label} {required && <span className="text-accent font-bold" aria-hidden="true">*</span>}
         </label>
@@ -43,7 +43,7 @@ export const InputField = ({
 
       <div className="relative flex items-center">
         {Icon && (
-          <div className="absolute left-3.5 pointer-events-none text-ink-muted dark:text-purple-400">
+          <div className="absolute left-3.5 pointer-events-none text-ink-muted dark:text-lace/60">
             <Icon size={18} />
           </div>
         )}
@@ -61,12 +61,12 @@ export const InputField = ({
           disabled={disabled}
           aria-invalid={!!error}
           aria-describedby={error ? errorId : helperText ? helperId : undefined}
-          className={`w-full min-h-[46px] px-3.5 py-2.5 text-base text-ink dark:text-white placeholder:text-ink-muted/70 dark:placeholder:text-purple-300/40 bg-white dark:bg-[#201A30] border rounded-brand transition-all duration-150 focus:outline-none focus:ring-2 disabled:bg-surface-muted dark:disabled:bg-purple-950/40 disabled:text-ink-muted dark:disabled:text-purple-400/50 disabled:cursor-not-allowed ${
+          className={`w-full min-h-[46px] px-3.5 py-2.5 text-base text-ink dark:text-lace placeholder:text-ink-muted/70 dark:placeholder:text-lace/40 bg-white dark:bg-[#24151F] border rounded-brand transition-all duration-150 focus:outline-none focus:ring-2 disabled:bg-surface-muted dark:disabled:bg-[#1E121A] disabled:text-ink-muted dark:disabled:text-lace/40 disabled:cursor-not-allowed ${
             Icon ? 'pl-10' : 'pl-3.5'
           } ${isPassword ? 'pr-11' : 'pr-3.5'} ${
             error
               ? 'border-red-400 dark:border-red-500 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-950/50'
-              : 'border-purple-100 dark:border-purple-800/50 hover:border-purple-200 dark:hover:border-purple-700 focus:border-primary focus:ring-primary-100 dark:focus:ring-purple-900/50'
+              : 'border-primary-100 dark:border-[#4C293C] hover:border-primary-200 dark:hover:border-primary-600 focus:border-primary focus:ring-primary-100 dark:focus:ring-primary-900/40'
           }`}
           {...props}
         />
@@ -75,7 +75,7 @@ export const InputField = ({
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-2 p-2 text-ink-muted dark:text-purple-300 hover:text-ink dark:hover:text-white transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300 min-h-[40px] min-w-[40px] flex items-center justify-center"
+            className="absolute right-2 p-2 text-ink-muted dark:text-lace/70 hover:text-ink dark:hover:text-lace transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300 min-h-[40px] min-w-[40px] flex items-center justify-center"
             aria-label={showPassword ? 'Hide password' : 'Show password'}
             tabIndex={0}
           >
@@ -90,7 +90,7 @@ export const InputField = ({
           {error}
         </p>
       ) : helperText ? (
-        <p id={helperId} className="mt-1 text-xs text-ink-muted dark:text-purple-300/70">
+        <p id={helperId} className="mt-1 text-xs text-ink-muted dark:text-lace/70">
           {helperText}
         </p>
       ) : null}

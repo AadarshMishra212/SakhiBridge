@@ -10,10 +10,10 @@ export const NotFound = () => {
   const returnLabel = isAuthenticated ? 'Back to Home' : 'Go to Log In';
 
   return (
-    <div className="min-h-screen bg-surface-alt dark:bg-[#0F0C1B] transition-colors duration-200 flex flex-col justify-center items-center px-4 py-12 text-center">
-      <div className="max-w-sm w-full mx-auto bg-white dark:bg-[#191426] border border-purple-100 dark:border-purple-900/50 rounded-3xl p-8 shadow-soft flex flex-col items-center">
+    <div className="min-h-screen bg-surface-alt dark:bg-[#140C12] transition-colors duration-200 flex flex-col justify-center items-center px-4 py-12 text-center">
+      <div className="max-w-sm w-full mx-auto bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-3xl p-8 shadow-soft flex flex-col items-center">
         {/* Decorative Compass / 404 icon */}
-        <div className="w-20 h-20 rounded-3xl bg-primary-soft dark:bg-[#2B2342] text-primary dark:text-primary-light flex items-center justify-center mb-5 shadow-inner">
+        <div className="w-20 h-20 rounded-3xl bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light flex items-center justify-center mb-5 shadow-inner">
           <Compass size={40} className="animate-spin-slow" />
         </div>
 
@@ -21,11 +21,11 @@ export const NotFound = () => {
           Error 404
         </span>
 
-        <h1 className="text-2xl font-bold text-ink dark:text-white mb-2">
+        <h1 className="text-2xl font-bold text-ink dark:text-lace mb-2">
           Page Not Found
         </h1>
 
-        <p className="text-xs text-ink-secondary dark:text-purple-200/70 leading-relaxed mb-6">
+        <p className="text-xs text-ink-secondary dark:text-lace/70 leading-relaxed mb-6">
           The safety page or bridge link you are looking for doesn't exist or has moved. Let's get you back to safety.
         </p>
 

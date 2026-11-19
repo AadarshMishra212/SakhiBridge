@@ -105,15 +105,20 @@ theme: {
   extend: {
     colors: {
       primary: {
-        DEFAULT: '#7B4FD6', // Change your primary purple here
-        light: '#966DE8',
-        dark: '#6339B8',
-        soft: '#F4EFFE',
+        DEFAULT: '#FE9179', // Ballet Slipper coral-pink
+        light: '#FFA693',
+        dark: '#E27660',
+        soft: '#FFF0EC',
+      },
+      lace: {
+        DEFAULT: '#FFEDD1', // Lace warm ivory cream
+        light: '#FFF8EC',
+        dark: '#F5DCB5',
       },
       accent: {
-        DEFAULT: '#F06292', // Change your accent pink here
-        light: '#F48FB1',
-        dark: '#D81B60',
+        DEFAULT: '#FF6B8B', // Warm ballet rose accent
+        light: '#FF8DA6',
+        dark: '#E24C6F',
       },
       // ...
     },
