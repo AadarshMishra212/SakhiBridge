@@ -30,9 +30,9 @@ export const PrimaryButton = ({
     danger:
       'bg-sos hover:bg-sos-dark text-white shadow-soft focus:ring-red-500',
     secondary:
-      'bg-primary-soft hover:bg-primary-100 text-primary-dark font-semibold border border-primary-200/60 focus:ring-primary-400',
+      'bg-primary-soft dark:bg-purple-950/60 hover:bg-primary-100 dark:hover:bg-purple-900/80 text-primary-dark dark:text-primary-light font-semibold border border-primary-200/60 dark:border-purple-800/60 focus:ring-primary-400',
     outline:
-      'bg-transparent hover:bg-surface-alt dark:hover:bg-purple-950/40 text-ink dark:text-purple-100 border border-purple-200 dark:border-purple-800/60 hover:border-purple-300 dark:hover:border-purple-700 focus:ring-primary-300',
+      'bg-transparent hover:bg-surface-alt dark:hover:bg-purple-950/40 text-ink dark:text-white border border-purple-200 dark:border-purple-800/60 hover:border-purple-300 dark:hover:border-purple-700 focus:ring-primary-300',
     ghost:
       'bg-transparent hover:bg-primary-soft/60 dark:hover:bg-purple-900/40 text-ink-secondary dark:text-purple-200 hover:text-primary dark:hover:text-white focus:ring-primary-300'
   };

@@ -23,65 +23,122 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /* Universal direct dark mode styling guarantees */
+  /* ==========================================================================
+     LIGHT MODE CONTRAST (Dark text on light background)
+     ========================================================================== */
+  :root:not(.dark),
+  html:not(.dark) body {
+    background-color: #FAF8FD;
+    color: #1A1526;
+  }
+
+  html:not(.dark) .bg-surface-alt {
+    background-color: #FAF8FD;
+  }
+
+  html:not(.dark) .bg-white {
+    background-color: #FFFFFF;
+    color: #1A1526;
+  }
+
+  html:not(.dark) h1,
+  html:not(.dark) h2,
+  html:not(.dark) h3,
+  html:not(.dark) h4,
+  html:not(.dark) label,
+  html:not(.dark) .text-ink {
+    color: #1A1526;
+  }
+
+  html:not(.dark) p,
+  html:not(.dark) .text-ink-secondary {
+    color: #544D66;
+  }
+
+  html:not(.dark) .text-ink-muted {
+    color: #837A99;
+  }
+
+  html:not(.dark) input,
+  html:not(.dark) select,
+  html:not(.dark) textarea {
+    background-color: #FFFFFF;
+    color: #1A1526;
+    border-color: #DECFFF;
+  }
+
+  html:not(.dark) input::placeholder,
+  html:not(.dark) textarea::placeholder {
+    color: #9C93B2;
+  }
+
+  /* ==========================================================================
+     DARK MODE CONTRAST (Light text on dark background)
+     ========================================================================== */
   html.dark,
   html.dark body {
-    background-color: #0F0C1B !important;
-    color: #F3EFFC !important;
+    background-color: #0C0917 !important;
+    color: #F8F6FD !important;
   }
 
   html.dark .bg-surface-alt {
-    background-color: #0F0C1B !important;
+    background-color: #0C0917 !important;
   }
 
   html.dark .bg-white {
-    background-color: #191426 !important;
+    background-color: #171224 !important;
+    color: #F8F6FD !important;
   }
 
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4,
+  html.dark label,
   html.dark .text-ink {
-    color: #F3EFFC !important;
+    color: #FFFFFF !important;
   }
 
+  html.dark p,
   html.dark .text-ink-secondary {
-    color: #B7AFD0 !important;
+    color: #D2C9E6 !important;
   }
 
   html.dark .text-ink-muted {
-    color: #8C82A6 !important;
+    color: #9C91B8 !important;
   }
 
   html.dark .border-purple-100 {
-    border-color: rgba(147, 112, 219, 0.2) !important;
+    border-color: #2F2548 !important;
   }
 
   html.dark .border-purple-50 {
-    border-color: rgba(147, 112, 219, 0.12) !important;
+    border-color: #221A36 !important;
   }
 
-  html.dark input {
-    background-color: #211B33 !important;
+  html.dark input,
+  html.dark select,
+  html.dark textarea {
+    background-color: #201932 !important;
     color: #FFFFFF !important;
-    border-color: rgba(147, 112, 219, 0.25) !important;
+    border-color: #382B57 !important;
   }
 
-  html.dark input::placeholder {
-    color: rgba(183, 175, 208, 0.45) !important;
+  html.dark input::placeholder,
+  html.dark textarea::placeholder {
+    color: rgba(210, 201, 230, 0.45) !important;
   }
 
-  html.dark nav {
-    background-color: rgba(25, 20, 38, 0.95) !important;
-    border-color: rgba(147, 112, 219, 0.2) !important;
-  }
-
+  html.dark nav,
   html.dark header {
-    background-color: rgba(25, 20, 38, 0.95) !important;
-    border-color: rgba(147, 112, 219, 0.2) !important;
+    background-color: rgba(23, 18, 36, 0.95) !important;
+    border-color: #2F2548 !important;
   }
 
   html.dark dialog {
-    background-color: #191426 !important;
-    color: #F3EFFC !important;
-    border-color: rgba(147, 112, 219, 0.25) !important;
+    background-color: #171224 !important;
+    color: #F8F6FD !important;
+    border-color: #382B57 !important;
   }
 
   /* Accessible native <dialog> modal styles adhering to Modern Web Guidance */
@@ -92,7 +149,7 @@
   dialog::backdrop {
     overflow: hidden;
     overscroll-behavior: contain;
-    background: rgba(10, 7, 18, 0.7);
+    background: rgba(10, 7, 18, 0.75);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }
