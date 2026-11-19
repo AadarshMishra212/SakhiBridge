@@ -97,22 +97,22 @@ export const Home = () => {
 
   return (
     <div className="space-y-6 sm:space-y-8 pb-4">
-      {/* Personalized Welcome Hero Banner (Calibrated for both Mobile & Laptop viewports) */}
-      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FE9179] via-[#C55A44] to-[#842D1B] text-lace p-6 sm:p-8 shadow-float">
+      {/* Personalized Welcome Hero Banner (Deep Ballet Wine background ensures crystal clear Lace text contrast) */}
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#842D1B] via-[#681E0F] to-[#3A0F07] text-lace p-6 sm:p-8 shadow-float border border-[#A4422D]/40">
         {/* Soft background glow circles */}
-        <div className="absolute -right-8 -bottom-8 w-48 h-48 rounded-full bg-accent/25 blur-3xl pointer-events-none" />
+        <div className="absolute -right-8 -bottom-8 w-48 h-48 rounded-full bg-accent/20 blur-3xl pointer-events-none" />
         <div className="absolute -left-8 -top-8 w-48 h-48 rounded-full bg-white/10 blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-lace border border-lace/30">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-black/30 backdrop-blur-md text-lace border border-lace/30">
                 <Sparkles size={13} className="text-lace" /> Sakhi Circle Active
               </span>
-              <span className="text-xs text-lace/90 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+              <span className="text-xs text-lace/90 flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/20 backdrop-blur-sm border border-white/10">
                 <MapPin size={12} /> Delhi NCR
               </span>
-              <span className="inline-flex items-center gap-1 text-xs text-emerald-200 font-medium px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+              <span className="inline-flex items-center gap-1 text-xs text-emerald-200 font-medium px-2.5 py-1 rounded-full bg-black/20 backdrop-blur-sm border border-emerald-400/30">
                 <CheckCircle2 size={13} /> 3 Guardians Active
               </span>
             </div>
@@ -130,7 +130,7 @@ export const Home = () => {
             <button
               type="button"
               onClick={() => navigate('/support')}
-              className="px-5 py-3 rounded-xl bg-white text-primary text-xs sm:text-sm font-bold hover:bg-primary-50 transition-all shadow-md active:scale-95 inline-flex items-center gap-2 min-h-touch"
+              className="px-5 py-3 rounded-xl bg-white text-sos text-xs sm:text-sm font-bold hover:bg-lace transition-all shadow-md active:scale-95 inline-flex items-center gap-2 min-h-touch"
             >
               <Radio size={16} className="text-sos animate-pulse" />
               <span>Emergency SOS</span>

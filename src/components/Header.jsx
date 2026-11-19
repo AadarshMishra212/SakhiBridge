@@ -61,7 +61,7 @@ export const Header = ({ title, subtitle, showActions = true }) => {
                         ? 'bg-sos text-white shadow-sm'
                         : 'bg-red-50 dark:bg-red-950/40 text-sos dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/50'
                       : isActive
-                        ? 'bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light shadow-xs'
+                        ? 'bg-primary-soft dark:bg-[#281823] text-[#842D1B] dark:text-primary-light font-bold shadow-xs border border-primary-200/60 dark:border-[#4C293C]'
                         : 'text-ink-secondary dark:text-lace/80 hover:text-ink dark:hover:text-lace hover:bg-surface-alt dark:hover:bg-[#331F2D]'
                   }
                 `}
@@ -82,7 +82,7 @@ export const Header = ({ title, subtitle, showActions = true }) => {
             {/* Quick Helpline link on tablet/laptop */}
             <a
               href="tel:1091"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light hover:bg-primary-100 dark:hover:bg-[#331F2D] text-xs font-bold border border-primary-100 dark:border-[#3A1F2D] transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary-soft dark:bg-[#281823] text-[#842D1B] dark:text-primary-light hover:bg-primary-100 dark:hover:bg-[#331F2D] text-xs font-bold border border-primary-200 dark:border-[#3A1F2D] transition-colors"
               title="Call National Women Helpline 1091"
             >
               <PhoneCall size={13} />
@@ -107,7 +107,7 @@ export const Header = ({ title, subtitle, showActions = true }) => {
                 className="flex items-center gap-2 pl-2 sm:border-l sm:border-primary-100 dark:sm:border-[#3A1F2D] hover:opacity-90 transition-opacity"
                 title={`Logged in as ${user.name}`}
               >
-                <div className="w-8 h-8 rounded-full bg-primary-soft dark:bg-[#281823] text-primary-dark dark:text-lace font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-[#4C293C] shadow-xs">
+                <div className="w-8 h-8 rounded-full bg-primary-soft dark:bg-[#281823] text-[#842D1B] dark:text-lace font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-[#4C293C] shadow-xs">
                   {user.avatar || 'SB'}
                 </div>
                 <span className="hidden sm:inline-block text-xs font-semibold text-ink dark:text-lace max-w-[100px] truncate">

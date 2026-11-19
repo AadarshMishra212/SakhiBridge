@@ -39,7 +39,7 @@ export const Support = () => {
       name: 'Women in Distress',
       number: '1091',
       desc: '24/7 dedicated national helpline for women',
-      color: 'bg-primary-soft text-primary-dark border-primary-100 dark:bg-[#281823] dark:border-[#4C293C]'
+      color: 'bg-primary-soft text-[#842D1B] border-primary-100 dark:bg-[#281823] dark:text-primary-light dark:border-[#4C293C]'
     },
     {
       name: 'All-in-One Emergency',
@@ -51,7 +51,7 @@ export const Support = () => {
       name: 'Cyber Crime Helpline',
       number: '1930',
       desc: 'Report online harassment, stalking & fraud',
-      color: 'bg-primary-soft text-primary-dark border-primary-200 dark:bg-[#281823] dark:border-[#4C293C]'
+      color: 'bg-primary-soft text-[#842D1B] border-primary-200 dark:bg-[#281823] dark:text-primary-light dark:border-[#4C293C]'
     },
     {
       name: 'National Commission for Women',

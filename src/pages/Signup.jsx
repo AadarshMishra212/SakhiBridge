@@ -100,7 +100,7 @@ export const Signup = () => {
           <div className="mb-4">
             <Link
               to="/login"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace transition-colors py-1.5 px-2.5 rounded-lg hover:bg-primary-soft/60 dark:hover:bg-[#331F2D]"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#842D1B] dark:text-primary-light hover:text-[#5C1B0E] dark:hover:text-lace transition-colors py-1.5 px-2.5 rounded-lg hover:bg-primary-soft/60 dark:hover:bg-[#331F2D]"
             >
               <ArrowLeft size={16} /> Back to Log In
             </Link>
@@ -111,7 +111,7 @@ export const Signup = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-lace leading-tight">
-            Create Your <span className="text-primary dark:text-primary-light">Sakhi</span> Account
+            Create Your <span className="text-[#C55A44] dark:text-primary-light">Sakhi</span> Account
           </h1>
           <p className="mt-2 text-sm sm:text-base text-ink-secondary dark:text-lace/80 max-w-sm mx-auto lg:mx-0 leading-relaxed">
             Join thousands of women in a secure, supportive, and verified emergency circle.
@@ -242,7 +242,7 @@ export const Signup = () => {
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="font-semibold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace transition-colors inline-flex items-center gap-1 hover:underline"
+                className="font-semibold text-[#842D1B] dark:text-primary-light hover:text-[#5C1B0E] dark:hover:text-lace transition-colors inline-flex items-center gap-1 hover:underline"
               >
                 Log In
               </Link>

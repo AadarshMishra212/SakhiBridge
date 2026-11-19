@@ -18,10 +18,10 @@ export const FeatureCard = ({
   className = ''
 }) => {
   const badgeColors = {
-    primary: 'bg-primary-100 text-primary-dark',
-    accent: 'bg-accent-100 text-accent-dark',
-    success: 'bg-emerald-100 text-emerald-800',
-    warning: 'bg-amber-100 text-amber-800'
+    primary: 'bg-primary-100 text-[#842D1B] dark:bg-[#3D1D23] dark:text-primary-light border border-primary-200 dark:border-primary-800/60',
+    accent: 'bg-pink-100 text-pink-900 dark:bg-pink-950/70 dark:text-pink-300 border border-pink-200 dark:border-pink-800/60',
+    success: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950/70 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60',
+    warning: 'bg-amber-100 text-amber-950 dark:bg-amber-950/70 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60'
   };
 
   return (

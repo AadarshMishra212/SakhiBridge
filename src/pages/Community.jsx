@@ -120,7 +120,7 @@ export const Community = () => {
       {/* Top Banner (Responsive Header Bar) */}
       <div className="bg-gradient-to-r from-accent-soft via-primary-soft to-primary-100/70 dark:from-[#281823] dark:via-[#1E121A] dark:to-[#140C12] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transition-colors shadow-soft">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/80 dark:bg-[#281823] text-primary dark:text-primary-light border border-primary-200/50 dark:border-[#4C293C] mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/80 dark:bg-[#281823] text-[#842D1B] dark:text-primary-light border border-primary-200/50 dark:border-[#4C293C] mb-2">
             <Sparkles size={14} className="text-accent" /> Safe & Anonymous Sisterhood
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-lace">

@@ -67,28 +67,56 @@
   }
 
   /* ==========================================================================
-     LIGHT MODE CONTRAST DEFAULTS (Ballet Slipper background & deep espresso text)
+     LIGHT MODE CONTRAST DEFAULTS (Dark text on light background)
      ========================================================================== */
+  html:not(.dark),
   html:not(.dark) body {
-    background-color: #FFF7F4;
+    background-color: #FFF7F4 !important;
+    color: #2D1914 !important;
+  }
+
+  html:not(.dark) .bg-surface-alt {
+    background-color: #FFF7F4 !important;
+  }
+
+  html:not(.dark) .bg-white {
+    background-color: #FFFFFF !important;
     color: #2D1914;
+  }
+
+  html:not(.dark) .text-ink {
+    color: #2D1914 !important;
+  }
+
+  html:not(.dark) .text-ink-secondary {
+    color: #5C382E !important;
+  }
+
+  html:not(.dark) .text-ink-muted {
+    color: #7E5347 !important;
+  }
+
+  html:not(.dark) nav,
+  html:not(.dark) header {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-color: #FFE0D6 !important;
   }
 
   html:not(.dark) input:not([type="checkbox"]):not([type="radio"]),
   html:not(.dark) select,
   html:not(.dark) textarea {
-    background-color: #FFFFFF;
-    color: #2D1914;
-    border-color: #FFCCBF;
+    background-color: #FFFFFF !important;
+    color: #2D1914 !important;
+    border-color: #FFCCBF !important;
   }
 
   html:not(.dark) input::placeholder,
   html:not(.dark) textarea::placeholder {
-    color: #A37F75;
+    color: #A37F75 !important;
   }
 
   /* ==========================================================================
-     DARK MODE CONTRAST OVERRIDES (Deep velvet dark bg & Lace #FFEDD1 text)
+     DARK MODE CONTRAST OVERRIDES (Light Lace text on dark background)
      ========================================================================== */
   html.dark,
   html.dark body {
@@ -103,6 +131,18 @@
   html.dark .bg-white {
     background-color: #1E121A !important;
     color: #FFEDD1 !important; /* Lace text */
+  }
+
+  html.dark .text-ink {
+    color: #FFEDD1 !important; /* Lace text */
+  }
+
+  html.dark .text-ink-secondary {
+    color: #F0DDC5 !important; /* Soft lace */
+  }
+
+  html.dark .text-ink-muted {
+    color: #C9B299 !important; /* Muted lace */
   }
 
   html.dark .border-primary-100,

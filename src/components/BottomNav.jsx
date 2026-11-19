@@ -49,7 +49,7 @@ export const BottomNav = () => {
                 flex flex-col items-center justify-center min-h-[48px] min-w-[56px] px-2 py-1 rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary-200 select-none
                 ${
                   isActive
-                    ? 'text-primary dark:text-primary-light font-semibold'
+                    ? 'text-[#842D1B] dark:text-primary-light font-bold'
                     : 'text-ink-muted dark:text-lace/60 hover:text-ink-secondary dark:hover:text-lace'
                 }
               `}
@@ -71,7 +71,7 @@ export const BottomNav = () => {
                     ) : (
                       <div
                         className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
-                          isActive ? 'bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light' : ''
+                          isActive ? 'bg-primary-soft dark:bg-[#281823] text-[#842D1B] dark:text-primary-light' : ''
                         }`}
                       >
                         <Icon size={20} strokeWidth={isActive ? 2.3 : 1.8} />
@@ -80,7 +80,7 @@ export const BottomNav = () => {
                   </div>
                   <span
                     className={`text-[11px] mt-0.5 tracking-tight ${
-                      isActive ? 'text-primary dark:text-primary-light font-semibold' : 'text-ink-muted dark:text-lace/60'
+                      isActive ? 'text-[#842D1B] dark:text-primary-light font-bold' : 'text-ink-muted dark:text-lace/60'
                     }`}
                   >
                     {item.label}

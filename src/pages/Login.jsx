@@ -89,7 +89,7 @@ export const Login = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink dark:text-lace leading-tight">
-            Welcome to <span className="text-primary dark:text-primary-light">SakhiBridge</span>
+            Welcome to <span className="text-[#C55A44] dark:text-primary-light">SakhiBridge</span>
           </h1>
           <p className="mt-2 sm:mt-3 text-sm sm:text-base text-ink-secondary dark:text-lace/80 max-w-md mx-auto lg:mx-0 leading-relaxed">
             Your safe companion, community, and emergency support bridge.
@@ -108,7 +108,7 @@ export const Login = () => {
             </div>
 
             <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/80 dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] shadow-xs">
-              <div className="w-10 h-10 rounded-xl bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-primary-soft dark:bg-[#281823] text-[#842D1B] dark:text-primary-light flex items-center justify-center shrink-0">
                 <Heart size={20} />
               </div>
               <div className="text-left">
@@ -134,15 +134,15 @@ export const Login = () => {
           {/* Quick Demo Credentials Chip */}
           <div className="mb-4 bg-primary-soft/90 dark:bg-[#281823] border border-primary-200/80 dark:border-[#4C293C] rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
             <div className="text-xs text-ink-secondary dark:text-lace/90 flex items-center gap-2">
-              <Sparkles size={16} className="text-primary dark:text-primary-light shrink-0" />
+              <Sparkles size={16} className="text-[#C55A44] dark:text-primary-light shrink-0" />
               <span>
-                Demo user ready: <strong className="text-primary-dark dark:text-lace font-semibold">demo@sakhibridge.org</strong>
+                Demo user ready: <strong className="text-[#842D1B] dark:text-lace font-semibold">demo@sakhibridge.org</strong>
               </span>
             </div>
             <button
               type="button"
               onClick={handleFillDemo}
-              className="text-xs font-bold text-primary dark:text-primary-light hover:text-primary-dark dark:hover:text-lace underline decoration-2 underline-offset-2 shrink-0 py-1 px-2.5 rounded-lg hover:bg-white/70 dark:hover:bg-[#331F2D] transition-colors"
+              className="text-xs font-bold text-[#842D1B] dark:text-primary-light hover:text-primary-dark dark:hover:text-lace underline decoration-2 underline-offset-2 shrink-0 py-1 px-2.5 rounded-lg hover:bg-white/70 dark:hover:bg-[#331F2D] transition-colors"
             >
               Auto-fill
             </button>
