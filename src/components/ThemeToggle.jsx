@@ -1,46 +1,65 @@
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../context/useTheme';
 
 /**
- * Corner Dark/Light Mode Toggle Button
- * Features a high-contrast accessible pill with instant visual feedback,
- * 44px+ touch target, and smooth icon/text transition.
+ * High-Contrast Corner Theme Switcher
+ * Features a dual-pill segmented toggle switch:
+ * - Shows both "Light" and "Dark" states clearly
+ * - Actively highlights the current theme
+ * - Instant one-tap switching with minimum 44px touch height
+ * - Fixed safely in the corner with high z-index
  */
 export const ThemeToggle = ({ className = '' }) => {
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, setTheme } = useTheme();
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`fixed top-3 right-3 sm:top-4 sm:right-4 z-50 pointer-events-auto flex items-center gap-2 px-3.5 py-2 rounded-full backdrop-blur-md transition-all duration-200 select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 min-h-[44px] shadow-soft hover:shadow-float active:scale-95 border ${
-        isDark
-          ? 'bg-[#221B35]/95 border-purple-500/50 text-amber-300 hover:text-amber-200 hover:bg-[#2C2344] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
-          : 'bg-white/95 border-purple-200 text-ink hover:text-primary hover:bg-white shadow-[0_4px_20px_rgba(123,79,214,0.14)]'
-      } ${className}`}
+    <div
+      role="region"
+      aria-label="Color scheme switcher"
+      className={`fixed top-3 right-3 sm:top-4 sm:right-4 z-50 pointer-events-auto select-none ${className}`}
     >
-      <div className="relative w-5 h-5 flex items-center justify-center">
-        {isDark ? (
-          <Sun
-            size={18}
-            className="text-amber-400 transition-transform duration-300 rotate-0"
-            aria-hidden="true"
-          />
-        ) : (
-          <Moon
-            size={18}
-            className="text-primary transition-transform duration-300 -rotate-12"
-            aria-hidden="true"
-          />
-        )}
-      </div>
+      <div
+        className={`flex items-center p-1 rounded-full border shadow-float backdrop-blur-md transition-all duration-200 min-h-[44px] ${
+          isDark
+            ? 'bg-[#181229]/95 border-purple-500/50 shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
+            : 'bg-white/95 border-purple-200 shadow-[0_4px_20px_rgba(123,79,214,0.15)]'
+        }`}
+      >
+        {/* Light Mode Button */}
+        <button
+          type="button"
+          onClick={() => setTheme('light')}
+          aria-pressed={!isDark}
+          aria-label="Switch to light mode"
+          title="Switch to light mode"
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 min-h-[36px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+            !isDark
+              ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-white shadow-sm scale-100'
+              : 'text-purple-300 hover:text-white opacity-70 hover:opacity-100'
+          }`}
+        >
+          <Sun size={15} className={!isDark ? 'rotate-0' : '-rotate-45'} aria-hidden="true" />
+          <span>Light</span>
+        </button>
 
-      <span className="text-xs font-semibold tracking-wide">
-        {isDark ? 'Light' : 'Dark'}
-      </span>
-    </button>
+        {/* Dark Mode Button */}
+        <button
+          type="button"
+          onClick={() => setTheme('dark')}
+          aria-pressed={isDark}
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 min-h-[36px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 ${
+            isDark
+              ? 'bg-gradient-to-r from-primary to-purple-600 text-white shadow-sm scale-100'
+              : 'text-ink-secondary hover:text-ink opacity-70 hover:opacity-100'
+          }`}
+        >
+          <Moon size={15} className={isDark ? '-rotate-12' : 'rotate-0'} aria-hidden="true" />
+          <span>Dark</span>
+        </button>
+      </div>
+    </div>
   );
 };

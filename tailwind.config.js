@@ -31,22 +31,28 @@ export default {
           500: '#F06292',
           600: '#E91E63',
         },
-        // Base backgrounds & surfaces
+        // Base backgrounds & surfaces (backed by CSS theme variables with fallback)
         surface: {
-          DEFAULT: '#FFFFFF',
-          alt: '#F8F6FC',
-          muted: '#F0ECF7',
-          dark: '#191426',
-          darkCard: '#221C33',
+          DEFAULT: 'var(--bg-surface, #FFFFFF)',
+          alt: 'var(--bg-app, #FAF8FD)',
+          muted: 'var(--bg-surface-subtle, #F4EFFE)',
+          card: 'var(--bg-surface, #FFFFFF)',
+          elevated: 'var(--bg-surface-elevated, #FFFFFF)',
+          dark: '#161126',
+          darkCard: '#211A36',
         },
         ink: {
-          DEFAULT: '#1E1B29', // Main readable text
-          secondary: '#575168',
-          muted: '#8C859F',
+          DEFAULT: 'var(--text-main, #1A1526)', // Crisp dark in light mode, pure white in dark mode
+          secondary: 'var(--text-secondary, #544D66)',
+          muted: 'var(--text-muted, #7E7594)',
           light: '#C4BFD3',
-          dark: '#F3EFFC',
-          darkSecondary: '#B7AFD0',
-          darkMuted: '#7F7599',
+          dark: '#FFFFFF',
+          darkSecondary: '#D8CFEB',
+          darkMuted: '#9E93B8',
+        },
+        border: {
+          DEFAULT: 'var(--border-subtle, #E6DCF5)',
+          input: 'var(--border-input, #DECFFF)',
         },
         // SOS & status indicators
         sos: {

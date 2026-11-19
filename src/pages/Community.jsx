@@ -237,13 +237,13 @@ export const Community = () => {
       >
         <form onSubmit={handleCreatePost} className="space-y-3">
           <div>
-            <label className="block text-xs font-semibold text-ink mb-1">
+            <label className="block text-xs font-semibold text-ink dark:text-purple-100 mb-1">
               Category
             </label>
             <select
               value={newPost.category}
               onChange={(e) => setNewPost({ ...newPost, category: e.target.value })}
-              className="w-full text-xs min-h-[40px] px-3 py-2 bg-white border border-purple-100 rounded-brand text-ink focus:outline-none focus:ring-2 focus:ring-primary-100"
+              className="w-full text-xs min-h-[40px] px-3 py-2 bg-white dark:bg-[#201A30] border border-purple-100 dark:border-purple-800/50 rounded-brand text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-100"
             >
               <option value="Safety Tips">Safety Tips</option>
               <option value="Workplace">Workplace</option>
@@ -254,7 +254,7 @@ export const Community = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink mb-1">
+            <label className="block text-xs font-semibold text-ink dark:text-purple-100 mb-1">
               Title
             </label>
             <input
@@ -263,12 +263,12 @@ export const Community = () => {
               value={newPost.title}
               onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
               required
-              className="w-full text-xs min-h-[40px] px-3 py-2 bg-white border border-purple-100 rounded-brand text-ink focus:outline-none focus:ring-2 focus:ring-primary-100"
+              className="w-full text-xs min-h-[40px] px-3 py-2 bg-white dark:bg-[#201A30] border border-purple-100 dark:border-purple-800/50 rounded-brand text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-100 placeholder:text-ink-muted/70 dark:placeholder:text-purple-300/40"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink mb-1">
+            <label className="block text-xs font-semibold text-ink dark:text-purple-100 mb-1">
               Content
             </label>
             <textarea
@@ -277,7 +277,7 @@ export const Community = () => {
               value={newPost.content}
               onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
               required
-              className="w-full text-xs p-3 bg-white border border-purple-100 rounded-brand text-ink focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none"
+              className="w-full text-xs p-3 bg-white dark:bg-[#201A30] border border-purple-100 dark:border-purple-800/50 rounded-brand text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none placeholder:text-ink-muted/70 dark:placeholder:text-purple-300/40"
             />
           </div>
         </form>

@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-const ThemeContext = createContext(null);
+import React, { useState, useEffect, useCallback } from 'react';
+import { ThemeContext } from './themeContextDef';
+export { useTheme } from './useTheme';
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setThemeState] = useState(() => {
@@ -13,7 +13,7 @@ export const ThemeProvider = ({ children }) => {
     }
   });
 
-  const applyTheme = (targetTheme) => {
+  const applyTheme = useCallback((targetTheme) => {
     if (typeof document === 'undefined') return;
     const root = document.documentElement;
     const body = document.body;
@@ -36,15 +36,15 @@ export const ThemeProvider = ({ children }) => {
       }
       if (metaColorScheme) metaColorScheme.content = 'light';
     }
-  };
+  }, []);
 
-  // Apply immediately on initial mount
+  // Apply on mount and whenever theme changes
   useEffect(() => {
     applyTheme(theme);
     try {
       localStorage.setItem('theme', theme);
     } catch {}
-  }, [theme]);
+  }, [theme, applyTheme]);
 
   // Sync across tabs via storage event
   useEffect(() => {
@@ -56,20 +56,20 @@ export const ThemeProvider = ({ children }) => {
     };
     window.addEventListener('storage', handleStorage);
     return () => window.removeEventListener('storage', handleStorage);
-  }, []);
+  }, [applyTheme]);
 
-  const toggleTheme = () => {
-    setThemeState((prev) => {
-      const next = prev === 'dark' ? 'light' : 'dark';
-      applyTheme(next); // Synchronous DOM update for instant visual response
+  const toggleTheme = useCallback(() => {
+    setThemeState((current) => {
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next); // Instant synchronous DOM switch
       try {
         localStorage.setItem('theme', next);
       } catch {}
       return next;
     });
-  };
+  }, [applyTheme]);
 
-  const setTheme = (mode) => {
+  const setTheme = useCallback((mode) => {
     if (mode === 'dark' || mode === 'light') {
       applyTheme(mode);
       try {
@@ -77,19 +77,11 @@ export const ThemeProvider = ({ children }) => {
       } catch {}
       setThemeState(mode);
     }
-  };
+  }, [applyTheme]);
 
   return (
     <ThemeContext.Provider value={{ theme, isDark: theme === 'dark', toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
-};
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
 };

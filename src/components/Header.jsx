@@ -36,7 +36,7 @@ export const Header = ({ title, subtitle, showActions = true }) => {
 
         {/* Action icons / User preview */}
         {showActions && (
-          <div className="flex items-center gap-2 pr-10 sm:pr-12">
+          <div className="flex items-center gap-2 pr-36 sm:pr-0">
             <button
               type="button"
               className="w-9 h-9 rounded-full flex items-center justify-center text-ink-muted dark:text-purple-300 hover:text-ink dark:hover:text-white hover:bg-surface-alt dark:hover:bg-purple-900/30 transition-colors relative min-h-touch min-w-touch"

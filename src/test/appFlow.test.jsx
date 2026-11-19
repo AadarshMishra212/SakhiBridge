@@ -196,15 +196,21 @@ describe('SakhiBridge Core Application Flow', () => {
   it('10. toggles between dark and light mode via the corner button', async () => {
     renderWithRouter('/login');
 
-    const toggleBtn = await screen.findByRole('button', { name: /switch to dark mode|switch to light mode/i });
-    expect(toggleBtn).toBeInTheDocument();
+    const darkBtn = await screen.findByRole('button', { name: /switch to dark mode/i });
+    const lightBtn = await screen.findByRole('button', { name: /switch to light mode/i });
+    expect(darkBtn).toBeInTheDocument();
+    expect(lightBtn).toBeInTheDocument();
 
-    // Toggle theme
-    fireEvent.click(toggleBtn);
-    expect(localStorage.getItem('theme')).toBeTruthy();
+    // Switch to dark mode
+    fireEvent.click(darkBtn);
+    expect(localStorage.getItem('theme')).toBe('dark');
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
 
-    // Toggle back
-    fireEvent.click(toggleBtn);
-    expect(localStorage.getItem('theme')).toBeTruthy();
+    // Switch back to light mode
+    fireEvent.click(lightBtn);
+    expect(localStorage.getItem('theme')).toBe('light');
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
   });
 });
