@@ -4,30 +4,41 @@ const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setThemeState] = useState(() => {
-    // Check localStorage first
     try {
       const saved = localStorage.getItem('theme');
       if (saved === 'dark' || saved === 'light') return saved;
-      // Default to system preference
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     } catch {
       return 'light';
     }
   });
 
-  const applyTheme = (newTheme) => {
+  const applyTheme = (targetTheme) => {
+    if (typeof document === 'undefined') return;
     const root = document.documentElement;
+    const body = document.body;
     const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
 
-    if (newTheme === 'dark') {
+    if (targetTheme === 'dark') {
       root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
+      if (body) {
+        body.classList.add('dark');
+        body.setAttribute('data-theme', 'dark');
+      }
       if (metaColorScheme) metaColorScheme.content = 'dark';
     } else {
       root.classList.remove('dark');
+      root.setAttribute('data-theme', 'light');
+      if (body) {
+        body.classList.remove('dark');
+        body.setAttribute('data-theme', 'light');
+      }
       if (metaColorScheme) metaColorScheme.content = 'light';
     }
   };
 
+  // Apply immediately on initial mount
   useEffect(() => {
     applyTheme(theme);
     try {
@@ -40,6 +51,7 @@ export const ThemeProvider = ({ children }) => {
     const handleStorage = (e) => {
       if (e.key === 'theme' && (e.newValue === 'dark' || e.newValue === 'light')) {
         setThemeState(e.newValue);
+        applyTheme(e.newValue);
       }
     };
     window.addEventListener('storage', handleStorage);
@@ -47,11 +59,22 @@ export const ThemeProvider = ({ children }) => {
   }, []);
 
   const toggleTheme = () => {
-    setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    setThemeState((prev) => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      applyTheme(next); // Synchronous DOM update for instant visual response
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+      return next;
+    });
   };
 
   const setTheme = (mode) => {
     if (mode === 'dark' || mode === 'light') {
+      applyTheme(mode);
+      try {
+        localStorage.setItem('theme', mode);
+      } catch {}
       setThemeState(mode);
     }
   };
@@ -70,4 +93,3 @@ export const useTheme = () => {
   }
   return context;
 };
-

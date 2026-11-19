@@ -5,16 +5,11 @@
 @layer base {
   :root {
     color-scheme: light dark;
-
-    &:has(> head > meta[name="color-scheme"][content="dark"]) {
-      color-scheme: dark;
-    }
-    &:has(> head > meta[name="color-scheme"][content="light"]) {
-      color-scheme: light;
-    }
   }
 
-  html.dark {
+  html.dark,
+  body.dark,
+  :root[data-theme="dark"] {
     color-scheme: dark;
   }
 
@@ -25,6 +20,68 @@
   
   body {
     overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Universal direct dark mode styling guarantees */
+  html.dark,
+  html.dark body {
+    background-color: #0F0C1B !important;
+    color: #F3EFFC !important;
+  }
+
+  html.dark .bg-surface-alt {
+    background-color: #0F0C1B !important;
+  }
+
+  html.dark .bg-white {
+    background-color: #191426 !important;
+  }
+
+  html.dark .text-ink {
+    color: #F3EFFC !important;
+  }
+
+  html.dark .text-ink-secondary {
+    color: #B7AFD0 !important;
+  }
+
+  html.dark .text-ink-muted {
+    color: #8C82A6 !important;
+  }
+
+  html.dark .border-purple-100 {
+    border-color: rgba(147, 112, 219, 0.2) !important;
+  }
+
+  html.dark .border-purple-50 {
+    border-color: rgba(147, 112, 219, 0.12) !important;
+  }
+
+  html.dark input {
+    background-color: #211B33 !important;
+    color: #FFFFFF !important;
+    border-color: rgba(147, 112, 219, 0.25) !important;
+  }
+
+  html.dark input::placeholder {
+    color: rgba(183, 175, 208, 0.45) !important;
+  }
+
+  html.dark nav {
+    background-color: rgba(25, 20, 38, 0.95) !important;
+    border-color: rgba(147, 112, 219, 0.2) !important;
+  }
+
+  html.dark header {
+    background-color: rgba(25, 20, 38, 0.95) !important;
+    border-color: rgba(147, 112, 219, 0.2) !important;
+  }
+
+  html.dark dialog {
+    background-color: #191426 !important;
+    color: #F3EFFC !important;
+    border-color: rgba(147, 112, 219, 0.25) !important;
   }
 
   /* Accessible native <dialog> modal styles adhering to Modern Web Guidance */
@@ -35,7 +92,7 @@
   dialog::backdrop {
     overflow: hidden;
     overscroll-behavior: contain;
-    background: rgba(30, 27, 41, 0.55);
+    background: rgba(10, 7, 18, 0.7);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }
@@ -57,4 +114,3 @@
 .animate-sos-pulse {
   animation: sos-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
-

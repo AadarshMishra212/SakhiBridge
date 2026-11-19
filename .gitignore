@@ -29,6 +29,7 @@ dist-ssr/
 .env.*
 
 # Cache and editor directories
+.chrome-debug/
 .vite/
 .vitest-cache/
 .vscode/
