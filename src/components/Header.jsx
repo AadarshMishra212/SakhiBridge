@@ -78,7 +78,7 @@ export const Header = ({ title, subtitle, showActions = true }) => {
 
         {/* Action icons / Quick Helpline / User profile */}
         {showActions && (
-          <div className="flex items-center gap-2 sm:gap-3 pr-36 md:pr-40 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 pr-20 sm:pr-24 shrink-0">
             {/* Quick Helpline link on tablet/laptop */}
             <a
               href="tel:1091"
@@ -110,7 +110,7 @@ export const Header = ({ title, subtitle, showActions = true }) => {
                 <div className="w-8 h-8 rounded-full bg-primary-soft dark:bg-[#281823] text-[#842D1B] dark:text-lace font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-[#4C293C] shadow-xs">
                   {user.avatar || 'SB'}
                 </div>
-                <span className="hidden sm:inline-block text-xs font-semibold text-ink dark:text-lace max-w-[100px] truncate">
+                <span className="hidden sm:inline-block text-xs font-semibold text-ink dark:text-lace max-w-[140px] truncate">
                   {user.name}
                 </span>
               </NavLink>
