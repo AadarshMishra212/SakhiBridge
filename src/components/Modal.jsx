@@ -75,19 +75,19 @@ export const Modal = ({
       onPointerDown={handlePointerDown}
       aria-labelledby={title ? titleId : undefined}
       aria-describedby={description ? descId : undefined}
-      className={`fixed inset-0 m-auto z-50 p-0 w-[calc(100%-2rem)] max-w-sm bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-3xl shadow-float backdrop:bg-black/50 backdrop:backdrop-blur-sm transition-all animate-in fade-in zoom-in-95 duration-200 outline-none ${className}`}
+      className={`fixed inset-0 m-auto z-50 p-0 w-[calc(100%-2rem)] max-w-md bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.10] dark:border-lace/[0.12] rounded-4xl shadow-float backdrop:bg-black/60 backdrop:backdrop-blur-md transition-all animate-in fade-in zoom-in-95 duration-200 outline-none ${className}`}
     >
-      <div className="p-5 sm:p-6" onPointerDown={(e) => e.stopPropagation()}>
+      <div className="p-6 sm:p-7" onPointerDown={(e) => e.stopPropagation()}>
         {/* Header row with icon & close button */}
-        <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="flex items-start justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
             {Icon && (
-              <div className="w-10 h-10 rounded-2xl bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-2xl bg-burgundy-900/[0.04] dark:bg-white/[0.06] text-primary flex items-center justify-center shrink-0 border border-burgundy-900/[0.06] dark:border-lace/[0.08]">
                 <Icon size={22} />
               </div>
             )}
             {title && (
-              <h2 id={titleId} className="text-lg font-bold text-ink dark:text-lace">
+              <h2 id={titleId} className="text-lg sm:text-xl font-bold text-ink dark:text-lace font-serif">
                 {title}
               </h2>
             )}
@@ -96,7 +96,7 @@ export const Modal = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 text-ink-muted dark:text-lace/70 hover:text-ink dark:hover:text-lace hover:bg-surface-alt dark:hover:bg-[#331F2D] rounded-full transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+            className="p-1.5 text-ink-muted dark:text-lace/70 hover:text-ink dark:hover:text-lace hover:bg-burgundy-900/[0.05] dark:hover:bg-white/[0.06] rounded-full transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer"
             aria-label="Close dialog"
           >
             <X size={18} />
@@ -104,7 +104,7 @@ export const Modal = ({
         </div>
 
         {description && (
-          <p id={descId} className="text-sm text-ink-secondary dark:text-lace/80 mb-4 leading-relaxed">
+          <p id={descId} className="text-xs sm:text-sm text-ink-secondary dark:text-lace/80 mb-4 leading-relaxed font-sans">
             {description}
           </p>
         )}
@@ -113,7 +113,7 @@ export const Modal = ({
         {children && <div className="mb-5">{children}</div>}
 
         {/* Action buttons */}
-        <div className="flex items-center gap-3 mt-5">
+        <div className="flex items-center gap-3 mt-6">
           {cancelText && (
             <PrimaryButton
               type="button"
@@ -143,4 +143,3 @@ export const Modal = ({
     </dialog>
   );
 };
-

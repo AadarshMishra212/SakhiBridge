@@ -71,7 +71,7 @@ export const Profile = () => {
         setSaveSuccess(false);
       }, 600);
     } catch (err) {
-      alert(err.message || 'Failed to update profile');
+      console.error('Update profile error:', err);
     } finally {
       setIsUpdating(false);
     }
@@ -98,43 +98,46 @@ export const Profile = () => {
     : '2026';
 
   return (
-    <div className="space-y-6 pb-6">
+    <div className="space-y-8 pb-8">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-1 border-b border-primary-100/60 dark:border-[#3A1F2D]">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-4 border-b border-burgundy-900/[0.08] dark:border-lace/[0.08]">
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-lace">Account & Safety Settings</h1>
-          <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/70 mt-0.5">
+          <h1 className="text-2xl sm:text-3xl font-bold text-ink dark:text-lace font-serif">
+            Account & Safety Settings
+          </h1>
+          <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/70 mt-1 font-sans">
             Manage your verified identity, emergency circle contacts, and personal preferences.
           </p>
         </div>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light text-xs font-semibold w-fit">
-          <ShieldCheck size={14} /> Security Tier: Verified Citizen
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold border border-emerald-500/20 shadow-xs w-fit">
+          <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
+          <span>Security Tier: Verified Citizen</span>
         </div>
       </div>
 
-      {/* Main Responsive Grid Layout (Stacked on Mobile, 2 Columns on Laptop / Desktop) */}
+      {/* Main Responsive Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         {/* Left Column (Profile Identity Card & Contact Details) */}
         <div className="lg:col-span-5 space-y-5">
           {/* Profile Overview Card */}
-          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-6 shadow-soft text-center relative overflow-hidden transition-colors">
-            {/* Soft decorative background ribbon */}
-            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-primary-100/70 to-accent-100/70 dark:from-[#281823] dark:to-[#331F2D]" />
+          <div className="bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-6 sm:p-7 shadow-premium text-center relative overflow-hidden transition-colors">
+            {/* Decorative background ribbon */}
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-primary/15 via-accent/15 to-[#8E2131]/15" />
 
             <div className="relative z-10 flex flex-col items-center">
               {/* Avatar with initials */}
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-accent text-lace font-black text-2xl flex items-center justify-center shadow-float border-4 border-white dark:border-[#1E121A] mb-3">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#8E2131] via-[#5A121F] to-[#360911] text-[#FFEDD1] font-black text-2xl flex items-center justify-center shadow-float border-4 border-white dark:border-[#1E1217] mb-3 group-hover:scale-105 transition-transform">
                 {user?.avatar || 'SB'}
               </div>
 
-              <h2 className="text-lg sm:text-xl font-bold text-ink dark:text-lace">{user?.name || 'Sakhi Member'}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-ink dark:text-lace font-serif">{user?.name || 'Sakhi Member'}</h2>
               <p className="text-xs sm:text-sm text-ink-muted dark:text-lace/70 mt-0.5">{user?.email || 'user@example.com'}</p>
 
               <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary dark:text-primary-light bg-primary-soft dark:bg-[#281823] px-3 py-1 rounded-full border border-primary-200 dark:border-[#4C293C]">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary bg-primary-soft dark:bg-[#281820] px-3 py-1 rounded-full border border-burgundy-900/[0.06] dark:border-lace/[0.08]">
                   <ShieldCheck size={13} /> Verified Citizen
                 </span>
-                <span className="inline-flex items-center gap-1 text-[11px] text-ink-muted dark:text-lace/70 bg-surface-alt dark:bg-[#24151F] px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 text-[11px] text-ink-muted dark:text-lace/70 bg-surface-alt dark:bg-[#23151D] px-3 py-1 rounded-full">
                   <Calendar size={12} /> Member since {formattedDate}
                 </span>
               </div>
@@ -142,7 +145,7 @@ export const Profile = () => {
               <button
                 type="button"
                 onClick={handleOpenEdit}
-                className="mt-4 px-4 py-2.5 rounded-xl bg-primary-soft dark:bg-[#281823] hover:bg-primary-100 dark:hover:bg-[#331F2D] text-primary dark:text-primary-light text-xs font-semibold transition-colors flex items-center gap-2 min-h-[40px]"
+                className="mt-5 px-4 py-2.5 rounded-2xl bg-burgundy-900/[0.04] dark:bg-white/[0.06] hover:bg-burgundy-900/[0.08] dark:hover:bg-white/[0.10] text-primary text-xs font-bold transition-all duration-200 flex items-center gap-2 min-h-[42px] border border-burgundy-900/[0.08] dark:border-lace/[0.10] shadow-xs cursor-pointer active:scale-95"
               >
                 <Edit3 size={15} /> Edit Contact Info
               </button>
@@ -150,20 +153,20 @@ export const Profile = () => {
           </div>
 
           {/* Account Info Details */}
-          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 shadow-soft space-y-3.5 text-left transition-colors">
+          <div className="bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-5 sm:p-6 shadow-premium space-y-3.5 text-left transition-colors">
             <h3 className="text-xs font-bold text-ink-muted dark:text-lace/70 uppercase tracking-wider">
               Emergency Contact Record
             </h3>
 
-            <div className="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-primary-100 dark:border-[#3A1F2D]">
+            <div className="flex items-center justify-between text-xs sm:text-sm py-2.5 border-b border-burgundy-900/[0.06] dark:border-lace/[0.08]">
               <div className="flex items-center gap-2.5 text-ink-secondary dark:text-lace/80">
-                <Mail size={16} className="text-primary dark:text-primary-light shrink-0" />
+                <Mail size={16} className="text-primary shrink-0" />
                 <span>Primary Email</span>
               </div>
               <span className="font-semibold text-ink dark:text-lace truncate max-w-[180px]">{user?.email}</span>
             </div>
 
-            <div className="flex items-center justify-between text-xs sm:text-sm py-2">
+            <div className="flex items-center justify-between text-xs sm:text-sm py-2.5">
               <div className="flex items-center gap-2.5 text-ink-secondary dark:text-lace/80">
                 <Phone size={16} className="text-accent shrink-0" />
                 <span>Alert Phone</span>
@@ -180,12 +183,12 @@ export const Profile = () => {
               size="lg"
               onClick={() => setShowLogoutModal(true)}
               icon={LogOut}
-              className="text-red-600 dark:text-red-400 border-red-200 dark:border-red-900/60 hover:bg-red-50 dark:hover:bg-red-950/40 hover:border-red-300"
+              className="text-red-600 dark:text-red-400 border-red-500/20 dark:border-red-500/30 hover:bg-red-500/5 dark:hover:bg-red-950/40"
               fullWidth
             >
               Log Out of SakhiBridge
             </PrimaryButton>
-            <p className="text-center text-[11px] text-ink-muted dark:text-lace/60 mt-2">
+            <p className="text-center text-[11px] text-ink-muted dark:text-lace/60 mt-3 font-medium">
               SakhiBridge v1.0.0 • Mobile & Laptop Calibrated
             </p>
           </div>
@@ -194,9 +197,9 @@ export const Profile = () => {
         {/* Right Column (Safety Preferences & Privacy Settings) */}
         <div className="lg:col-span-7 space-y-5">
           {/* Safety & App Preferences */}
-          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 sm:p-6 shadow-soft space-y-4 text-left transition-colors">
+          <div className="bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-5 sm:p-6 shadow-premium space-y-4 text-left transition-colors">
             <div>
-              <h3 className="text-sm sm:text-base font-bold text-ink dark:text-lace">
+              <h3 className="text-base sm:text-lg font-bold text-ink dark:text-lace font-serif">
                 Safety & Emergency Automation
               </h3>
               <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
@@ -204,18 +207,18 @@ export const Profile = () => {
               </p>
             </div>
 
-            <div className="divide-y divide-primary-100 dark:divide-[#3A1F2D]">
-              <div className="flex items-center justify-between py-3.5">
+            <div className="divide-y divide-burgundy-900/[0.06] dark:divide-lace/[0.08]">
+              <div className="flex items-center justify-between py-4">
                 <div className="pr-4">
-                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-lace">Live Guardian GPS Location Sharing</h4>
-                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
+                  <h4 className="text-xs sm:text-sm font-bold text-ink dark:text-lace">Live Guardian GPS Location Sharing</h4>
+                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5 leading-relaxed font-sans">
                     Automatically transmit real-time GPS coordinates when SOS is triggered or during emergency transit.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleToggle('locationSharing')}
-                  className={`w-12 h-6.5 rounded-full transition-colors relative shrink-0 focus:outline-none focus:ring-2 focus:ring-primary-200 ${
+                  className={`w-12 h-6.5 rounded-full transition-colors relative shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer p-0.5 ${
                     preferences.locationSharing ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'
                   }`}
                   role="switch"
@@ -223,24 +226,24 @@ export const Profile = () => {
                   aria-label="Toggle live guardian GPS location sharing"
                 >
                   <span
-                    className={`block w-4 h-4 rounded-full bg-white shadow-md transform transition-transform ${
-                      preferences.locationSharing ? 'translate-x-7' : 'translate-x-1'
+                    className={`block w-5 h-5 rounded-full bg-white shadow-md transform transition-transform ${
+                      preferences.locationSharing ? 'translate-x-6' : 'translate-x-0'
                     }`}
                   />
                 </button>
               </div>
 
-              <div className="flex items-center justify-between py-3.5">
+              <div className="flex items-center justify-between py-4">
                 <div className="pr-4">
-                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-lace">Shake Phone to Trigger SOS</h4>
-                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
+                  <h4 className="text-xs sm:text-sm font-bold text-ink dark:text-lace">Shake Phone to Trigger SOS</h4>
+                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5 leading-relaxed font-sans">
                     Trigger distress alarm silently when phone accelerometer detects rapid agitation.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleToggle('shakeToSOS')}
-                  className={`w-12 h-6.5 rounded-full transition-colors relative shrink-0 focus:outline-none focus:ring-2 focus:ring-primary-200 ${
+                  className={`w-12 h-6.5 rounded-full transition-colors relative shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer p-0.5 ${
                     preferences.shakeToSOS ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'
                   }`}
                   role="switch"
@@ -248,24 +251,24 @@ export const Profile = () => {
                   aria-label="Toggle shake phone to trigger SOS"
                 >
                   <span
-                    className={`block w-4 h-4 rounded-full bg-white shadow-md transform transition-transform ${
-                      preferences.shakeToSOS ? 'translate-x-7' : 'translate-x-1'
+                    className={`block w-5 h-5 rounded-full bg-white shadow-md transform transition-transform ${
+                      preferences.shakeToSOS ? 'translate-x-6' : 'translate-x-0'
                     }`}
                   />
                 </button>
               </div>
 
-              <div className="flex items-center justify-between py-3.5">
+              <div className="flex items-center justify-between py-4">
                 <div className="pr-4">
-                  <h4 className="text-xs sm:text-sm font-semibold text-ink dark:text-lace">Anonymous Community Mode</h4>
-                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5">
+                  <h4 className="text-xs sm:text-sm font-bold text-ink dark:text-lace">Anonymous Community Mode</h4>
+                  <p className="text-xs text-ink-muted dark:text-lace/70 mt-0.5 leading-relaxed font-sans">
                     Mask your name automatically as "Anonymous Sakhi" on stories, queries, and comments.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleToggle('anonymousMode')}
-                  className={`w-12 h-6.5 rounded-full transition-colors relative shrink-0 focus:outline-none focus:ring-2 focus:ring-primary-200 ${
+                  className={`w-12 h-6.5 rounded-full transition-colors relative shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer p-0.5 ${
                     preferences.anonymousMode ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'
                   }`}
                   role="switch"
@@ -273,8 +276,8 @@ export const Profile = () => {
                   aria-label="Toggle anonymous community mode"
                 >
                   <span
-                    className={`block w-4 h-4 rounded-full bg-white shadow-md transform transition-transform ${
-                      preferences.anonymousMode ? 'translate-x-7' : 'translate-x-1'
+                    className={`block w-5 h-5 rounded-full bg-white shadow-md transform transition-transform ${
+                      preferences.anonymousMode ? 'translate-x-6' : 'translate-x-0'
                     }`}
                   />
                 </button>
@@ -283,12 +286,12 @@ export const Profile = () => {
           </div>
 
           {/* Privacy & Device Security Card */}
-          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 sm:p-6 shadow-soft space-y-3 text-left transition-colors">
-            <h3 className="text-sm font-bold text-ink dark:text-lace flex items-center gap-2">
-              <Lock size={16} className="text-primary dark:text-primary-light" />
+          <div className="bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-5 sm:p-6 shadow-premium space-y-3 text-left transition-colors">
+            <h3 className="text-sm sm:text-base font-bold text-ink dark:text-lace font-serif flex items-center gap-2">
+              <Lock size={17} className="text-primary" />
               Privacy & Encryption Shield
             </h3>
-            <p className="text-xs text-ink-secondary dark:text-lace/80 leading-relaxed">
+            <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/80 leading-relaxed font-sans">
               All personal details, guardian contact numbers, and panic logs are encrypted using client-side protection before storage. SakhiBridge never sells user data or location telemetry to third parties.
             </p>
           </div>
@@ -307,7 +310,7 @@ export const Profile = () => {
         onConfirm={handleSaveProfile}
         isConfirmLoading={isUpdating}
       >
-        <form onSubmit={handleSaveProfile} className="space-y-3.5 text-left">
+        <form onSubmit={handleSaveProfile} className="space-y-4 text-left">
           <InputField
             id="edit-name"
             name="name"
@@ -335,7 +338,7 @@ export const Profile = () => {
         isOpen={showLogoutModal}
         onClose={() => setShowLogoutModal(false)}
         title="Log Out of SakhiBridge?"
-        description="You will be returned to the login screen. You will need your credentials to access your safety dashboard again."
+        description="Are you sure you want to log out of SakhiBridge? You will need your credentials to access your safety dashboard again."
         confirmText="Log Out Now"
         confirmVariant="danger"
         cancelText="Stay Logged In"

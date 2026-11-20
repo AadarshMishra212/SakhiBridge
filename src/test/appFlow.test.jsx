@@ -78,10 +78,9 @@ describe('SakhiBridge Core Application Flow', () => {
       { timeout: 3000 }
     );
 
-    // Check 4 feature cards
+    // Check 3 core feature cards
     expect(screen.getByText(/Emergency SOS & Circles/i)).toBeInTheDocument();
     expect(screen.getByText(/Sisterhood Community/i)).toBeInTheDocument();
-    expect(screen.getByText(/Rights & Legal Aid/i)).toBeInTheDocument();
     expect(screen.getByText(/Wellness & Healing/i)).toBeInTheDocument();
   });
 

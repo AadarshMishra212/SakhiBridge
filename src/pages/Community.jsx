@@ -116,17 +116,17 @@ export const Community = () => {
   };
 
   return (
-    <div className="space-y-6 pb-6">
-      {/* Top Banner (Responsive Header Bar) */}
-      <div className="bg-gradient-to-r from-accent-soft via-primary-soft to-primary-100/70 dark:from-[#281823] dark:via-[#1E121A] dark:to-[#140C12] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transition-colors shadow-soft">
-        <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/80 dark:bg-[#281823] text-[#842D1B] dark:text-primary-light border border-primary-200/50 dark:border-[#4C293C] mb-2">
-            <Sparkles size={14} className="text-accent" /> Safe & Anonymous Sisterhood
+    <div className="space-y-8 pb-8">
+      {/* Top Banner (Editorial Header Bar) */}
+      <div className="relative overflow-hidden rounded-3xl sm:rounded-4xl bg-gradient-to-br from-[#4A0E17] via-[#360911] to-[#20050A] text-lace p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 transition-colors shadow-float border border-white/10">
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-tight bg-white/10 backdrop-blur-md text-[#FFEDD1] border border-white/15 shadow-xs">
+            <Sparkles size={14} className="text-primary-light" /> Safe & Anonymous Sisterhood
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-ink dark:text-lace">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FFEDD1] font-serif tracking-tight">
             Sakhi Community Hub
           </h1>
-          <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/70 mt-1 max-w-xl">
+          <p className="text-xs sm:text-sm text-[#FFEDD1]/85 max-w-xl leading-relaxed font-sans">
             A trusted space for sharing verified commute experiences, workplace advice, legal insights, and mutual solidarity.
           </p>
         </div>
@@ -134,26 +134,26 @@ export const Community = () => {
         <button
           type="button"
           onClick={() => setShowCreateModal(true)}
-          className="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-lace text-xs sm:text-sm font-bold hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-soft shrink-0 min-h-touch active:scale-95"
+          className="px-5 py-3 rounded-2xl bg-gradient-to-r from-primary to-accent text-lace text-xs sm:text-sm font-bold hover:brightness-105 transition-all flex items-center justify-center gap-2 shadow-premium shrink-0 min-h-touch active:scale-95 border border-white/20 cursor-pointer"
         >
-          <PlusCircle size={17} /> Share Story
+          <PlusCircle size={18} /> Share Story
         </button>
       </div>
 
-      {/* Main Responsive Grid Layout (Stacked on Mobile, 2 Columns on Laptop / Desktop) */}
+      {/* Main Responsive Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         {/* Left Sidebar (Desktop Filters & Community Guidelines) */}
-        <div className="lg:col-span-4 space-y-4">
+        <div className="lg:col-span-4 space-y-5">
           {/* Mobile Category Scroll (Hidden on Laptop) */}
           <div className="flex lg:hidden items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {categories.map((cat) => (
               <button
                 key={cat.name}
                 onClick={() => setActiveCategory(cat.name)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors min-h-[36px] ${
+                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all min-h-[38px] cursor-pointer ${
                   activeCategory === cat.name
-                    ? 'bg-gradient-to-r from-primary to-primary-dark text-lace shadow-soft font-bold'
-                    : 'bg-white dark:bg-[#1E121A] text-ink-secondary dark:text-lace/80 border border-primary-100 dark:border-[#3A1F2D] hover:border-primary-200 dark:hover:border-primary-600'
+                    ? 'bg-gradient-to-r from-[#8E2131] to-[#5A121F] text-lace shadow-soft font-bold'
+                    : 'bg-white dark:bg-[#1E1217] text-ink-secondary dark:text-lace/80 border border-burgundy-900/[0.08] dark:border-lace/[0.08] hover:border-primary-300'
                 }`}
               >
                 {cat.name} ({cat.count})
@@ -162,27 +162,27 @@ export const Community = () => {
           </div>
 
           {/* Desktop Categories Card (Hidden on Mobile) */}
-          <div className="hidden lg:block bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 shadow-soft">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-ink-muted dark:text-lace/70 mb-3 flex items-center gap-1.5">
-              <Filter size={14} /> Topic Circles
+          <div className="hidden lg:block bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-5 shadow-premium">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-ink-muted dark:text-lace/70 mb-3.5 flex items-center gap-2">
+              <Filter size={14} className="text-primary" /> Topic Circles
             </h2>
             <nav className="space-y-1.5" aria-label="Topic circles">
               {categories.map((cat) => (
                 <button
                   key={cat.name}
                   onClick={() => setActiveCategory(cat.name)}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all text-left min-h-[40px] ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-bold transition-all text-left min-h-[42px] cursor-pointer ${
                     activeCategory === cat.name
-                      ? 'bg-gradient-to-r from-primary to-primary-dark text-lace shadow-soft font-bold'
-                      : 'text-ink-secondary dark:text-lace/80 hover:bg-surface-alt dark:hover:bg-[#331F2D] hover:text-ink dark:hover:text-lace'
+                      ? 'bg-gradient-to-r from-[#8E2131] to-[#5A121F] text-lace shadow-soft'
+                      : 'text-ink-secondary dark:text-lace/80 hover:bg-surface-alt dark:hover:bg-[#281820] hover:text-ink dark:hover:text-lace'
                   }`}
                 >
                   <span>{cat.name}</span>
                   <span
-                    className={`text-[11px] px-2 py-0.5 rounded-full ${
+                    className={`text-[11px] px-2.5 py-0.5 rounded-full font-bold ${
                       activeCategory === cat.name
-                        ? 'bg-white/25 text-lace'
-                        : 'bg-primary-soft dark:bg-[#281823] text-primary dark:text-primary-light'
+                        ? 'bg-white/20 text-lace'
+                        : 'bg-burgundy-900/[0.05] dark:bg-white/[0.06] text-primary'
                     }`}
                   >
                     {cat.count}
@@ -193,22 +193,22 @@ export const Community = () => {
           </div>
 
           {/* Community Trust Guidelines */}
-          <div className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 shadow-soft space-y-3 text-left">
-            <div className="flex items-center gap-2 text-primary dark:text-primary-light font-bold text-xs">
+          <div className="bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-5 sm:p-6 shadow-premium space-y-3.5 text-left">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
               <Shield size={16} />
               <span>Safe Space Standards</span>
             </div>
-            <ul className="text-xs text-ink-secondary dark:text-lace/70 space-y-2 leading-relaxed">
-              <li className="flex items-start gap-2">
-                <Lock size={13} className="text-accent shrink-0 mt-0.5" />
+            <ul className="text-xs text-ink-secondary dark:text-lace/80 space-y-2.5 leading-relaxed font-sans">
+              <li className="flex items-start gap-2.5">
+                <Lock size={14} className="text-accent shrink-0 mt-0.5" />
                 <span>Confidential identity: You can post anonymously anytime.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle size={13} className="text-emerald-500 shrink-0 mt-0.5" />
+              <li className="flex items-start gap-2.5">
+                <CheckCircle size={14} className="text-emerald-500 shrink-0 mt-0.5" />
                 <span>Zero tolerance for harassment or personal information leaks.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <Info size={13} className="text-primary shrink-0 mt-0.5" />
+              <li className="flex items-start gap-2.5">
+                <Info size={14} className="text-primary shrink-0 mt-0.5" />
                 <span>Legal primers and verified resources pinned for reference.</span>
               </li>
             </ul>
@@ -219,10 +219,10 @@ export const Community = () => {
         <div className="lg:col-span-8 space-y-4">
           <div className="flex items-center justify-between px-1">
             <span className="text-xs font-bold text-ink dark:text-lace">
-              Showing {filteredPosts.length} posts in <span className="text-primary dark:text-primary-light font-extrabold">{activeCategory}</span>
+              Showing {filteredPosts.length} posts in <span className="text-primary font-extrabold">{activeCategory}</span>
             </span>
-            <span className="text-xs text-ink-muted dark:text-lace/60 flex items-center gap-1">
-              <TrendingUp size={13} /> Active Circle Feed
+            <span className="text-xs text-ink-muted dark:text-lace/60 flex items-center gap-1 font-medium">
+              <TrendingUp size={13} className="text-primary" /> Active Circle Feed
             </span>
           </div>
 
@@ -230,18 +230,18 @@ export const Community = () => {
             {filteredPosts.map((post) => (
               <article
                 key={post.id}
-                className="bg-white dark:bg-[#1E121A] border border-primary-100 dark:border-[#3A1F2D] rounded-2xl p-5 sm:p-6 shadow-soft transition-all hover:border-primary-200 dark:hover:border-primary-600 text-left"
+                className="group bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.08] dark:border-lace/[0.08] rounded-3xl p-5 sm:p-6 shadow-premium transition-all duration-200 hover:shadow-float hover:border-primary-300 dark:hover:border-primary-600 text-left"
               >
                 {/* Author bar */}
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-3.5">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-primary-soft dark:bg-[#281823] text-primary-dark dark:text-lace font-bold text-xs flex items-center justify-center border border-primary-200 dark:border-[#4C293C] shadow-xs">
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#8E2131] to-[#5A121F] text-lace font-bold text-xs flex items-center justify-center border border-white/10 shadow-xs">
                       {post.author.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-xs sm:text-sm font-bold text-ink dark:text-lace">{post.author}</span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary-soft dark:bg-[#281823] text-primary-dark dark:text-lace border border-primary-100 dark:border-[#4C293C]">
+                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-burgundy-900/[0.04] dark:bg-white/[0.06] text-[#5A121F] dark:text-lace border border-burgundy-900/[0.08] dark:border-lace/[0.10]">
                           {post.badge}
                         </span>
                       </div>
@@ -249,54 +249,46 @@ export const Community = () => {
                     </div>
                   </div>
 
-                  <span className="text-xs font-semibold text-accent bg-accent-soft dark:bg-pink-950/40 px-3 py-1 rounded-full">
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-primary-soft dark:bg-[#281820] text-primary">
                     {post.category}
                   </span>
                 </div>
 
-                {/* Post Title & Content */}
-                <h2 className="text-sm sm:text-base font-bold text-ink dark:text-lace mb-2 leading-snug">
+                {/* Post content */}
+                <h3 className="text-base sm:text-lg font-bold text-ink dark:text-lace font-serif mb-2 leading-snug">
                   {post.title}
-                </h2>
-                <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/80 leading-relaxed mb-4">
+                </h3>
+                <p className="text-xs sm:text-sm text-ink-secondary dark:text-lace/80 leading-relaxed font-sans">
                   {post.content}
                 </p>
 
-                {/* Post Actions */}
-                <div className="pt-3 border-t border-primary-100 dark:border-[#3A1F2D] flex items-center justify-between text-ink-muted dark:text-lace/70 text-xs">
-                  <button
-                    type="button"
-                    onClick={() => toggleLike(post.id)}
-                    className={`flex items-center gap-1.5 py-1.5 px-3 rounded-xl transition-colors min-h-[36px] ${
-                      post.isLiked
-                        ? 'text-accent font-semibold bg-accent-soft/70 dark:bg-pink-950/50'
-                        : 'hover:text-accent hover:bg-surface-alt dark:hover:bg-[#331F2D]'
-                    }`}
-                    aria-label={post.isLiked ? 'Unlike post' : 'Like post'}
-                  >
-                    <Heart size={16} fill={post.isLiked ? 'currentColor' : 'none'} />
-                    <span>{post.likes}</span>
-                  </button>
+                {/* Footer buttons */}
+                <div className="mt-4 pt-3.5 border-t border-burgundy-900/[0.06] dark:border-lace/[0.08] flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <button
+                      type="button"
+                      onClick={() => toggleLike(post.id)}
+                      className={`flex items-center gap-1.5 text-xs font-bold transition-colors cursor-pointer min-h-[36px] min-w-[36px] ${
+                        post.isLiked
+                          ? 'text-sos'
+                          : 'text-ink-muted dark:text-lace/70 hover:text-sos'
+                      }`}
+                      aria-label={`${post.likes} likes`}
+                    >
+                      <Heart size={16} className={post.isLiked ? 'fill-current' : ''} />
+                      <span>{post.likes}</span>
+                    </button>
+
+                    <span className="flex items-center gap-1.5 text-xs text-ink-muted dark:text-lace/70 font-medium">
+                      <MessageSquare size={16} />
+                      <span>{post.comments}</span>
+                    </span>
+                  </div>
 
                   <button
                     type="button"
-                    onClick={() => alert(`Opening comments for: ${post.title}`)}
-                    className="flex items-center gap-1.5 py-1.5 px-3 rounded-xl hover:text-primary dark:hover:text-primary-light hover:bg-surface-alt dark:hover:bg-[#331F2D] transition-colors min-h-[36px]"
-                  >
-                    <MessageSquare size={16} />
-                    <span>{post.comments} Comments</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (navigator.share) {
-                        navigator.share({ title: post.title, text: post.content, url: window.location.href });
-                      } else {
-                        alert('Story link copied to clipboard!');
-                      }
-                    }}
-                    className="p-2 rounded-xl hover:text-ink dark:hover:text-lace hover:bg-surface-alt dark:hover:bg-[#331F2D] transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
+                    onClick={() => alert(`Shared post link: "${post.title}" copied to clipboard.`)}
+                    className="p-1.5 text-ink-muted dark:text-lace/70 hover:text-ink dark:hover:text-lace hover:bg-surface-alt dark:hover:bg-[#281820] rounded-full transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                     aria-label="Share post"
                   >
                     <Share2 size={16} />
@@ -308,59 +300,57 @@ export const Community = () => {
         </div>
       </div>
 
-      {/* New Post Modal */}
+      {/* Create Post Modal */}
       <Modal
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}
-        title="Share with SakhiBridge"
-        description="Write your thought, question, or safety advice. Community guidelines apply."
-        confirmText="Publish Post"
+        title="Share Your Experience"
+        icon={PlusCircle}
+        confirmText="Publish Story"
         onConfirm={handleCreatePost}
-        cancelText="Cancel"
       >
-        <form onSubmit={handleCreatePost} className="space-y-3.5">
+        <form onSubmit={handleCreatePost} className="space-y-4 text-left font-sans">
           <div>
-            <label className="block text-xs font-semibold text-ink dark:text-lace mb-1">
-              Category Circle
+            <label className="block text-xs font-bold text-ink dark:text-lace mb-1.5">
+              Topic Circle
             </label>
             <select
               value={newPost.category}
               onChange={(e) => setNewPost({ ...newPost, category: e.target.value })}
-              className="w-full text-xs min-h-[42px] px-3 py-2 bg-white dark:bg-[#24151F] border border-primary-100 dark:border-[#4C293C] rounded-brand text-ink dark:text-lace focus:outline-none focus:ring-2 focus:ring-primary-100"
+              className="w-full min-h-[46px] px-3.5 py-2.5 text-xs sm:text-sm text-ink dark:text-lace bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.12] dark:border-lace/[0.14] rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-xs"
             >
-              <option value="Safety Tips">Safety Tips</option>
-              <option value="Workplace">Workplace</option>
-              <option value="Resources">Resources</option>
-              <option value="Support">Support</option>
-              <option value="General">General</option>
+              <option value="General">General Support</option>
+              <option value="Safety Tips">Safety Tips & Commute</option>
+              <option value="Workplace">Workplace & PoSH</option>
+              <option value="Resources">Resources & Clinics</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink dark:text-lace mb-1">
+            <label className="block text-xs font-bold text-ink dark:text-lace mb-1.5">
               Story Title
             </label>
             <input
               type="text"
-              placeholder="A brief summary of your experience or query..."
+              required
+              placeholder="e.g. Tips on safe auto stands near Noida metro..."
               value={newPost.title}
               onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-              required
-              className="w-full text-xs min-h-[42px] px-3.5 py-2.5 bg-white dark:bg-[#24151F] border border-primary-100 dark:border-[#4C293C] rounded-brand text-ink dark:text-lace focus:outline-none focus:ring-2 focus:ring-primary-100 placeholder:text-ink-muted/70 dark:placeholder:text-lace/40"
+              className="w-full min-h-[46px] px-3.5 py-2.5 text-xs sm:text-sm text-ink dark:text-lace bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.12] dark:border-lace/[0.14] rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-xs"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink dark:text-lace mb-1">
-              Content & Details
+            <label className="block text-xs font-bold text-ink dark:text-lace mb-1.5">
+              Your Experience or Advice
             </label>
             <textarea
-              rows={5}
-              placeholder="Write your story, location tips, or question here..."
+              required
+              rows={4}
+              placeholder="Write your story safely. No personal identity information is required..."
               value={newPost.content}
               onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
-              required
-              className="w-full text-xs p-3.5 bg-white dark:bg-[#24151F] border border-primary-100 dark:border-[#4C293C] rounded-brand text-ink dark:text-lace focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none placeholder:text-ink-muted/70 dark:placeholder:text-lace/40"
+              className="w-full px-3.5 py-2.5 text-xs sm:text-sm text-ink dark:text-lace bg-white dark:bg-[#1E1217] border border-burgundy-900/[0.12] dark:border-lace/[0.14] rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-xs"
             />
           </div>
         </form>

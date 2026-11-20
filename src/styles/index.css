@@ -4,23 +4,31 @@
 
 @layer base {
   /* ==========================================================================
-     BALLET SLIPPER (#FE9179) & LACE (#FFEDD1) THEME TOKENS
+     SAKHIBRIDGE DESIGN SYSTEM TOKENS (Warm, Protective, Editorial)
      ========================================================================== */
   :root {
+    --brand-burgundy: #5A121F;
     --brand-primary: #FE9179;
     --brand-lace: #FFEDD1;
-    --bg-app: #FFF7F4;
+    --brand-coral: #FF6B5E;
+
+    --bg-app: #FFF8F5; /* Warm Cream */
     --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #FFF1EC;
+    --bg-surface-elevated: #FFF2ED;
     --bg-surface-subtle: #FFEAE2;
     --bg-input: #FFFFFF;
-    --text-main: #2D1914;
-    --text-secondary: #6E493F;
-    --text-muted: #966E63;
-    --border-subtle: #FFE0D6;
-    --border-input: #FFCCBF;
-    --nav-bg: rgba(255, 255, 255, 0.95);
-    --header-bg: rgba(255, 255, 255, 0.95);
+
+    --text-main: #2A1215; /* Deep Espresso Burgundy (AAA contrast 14:1) */
+    --text-secondary: #634045;
+    --text-muted: #8C6369;
+
+    --border-subtle: rgba(90, 18, 31, 0.08);
+    --border-hairline: rgba(90, 18, 31, 0.06);
+    --border-input: #FFD4C8;
+
+    --nav-bg: rgba(255, 248, 245, 0.82);
+    --header-bg: rgba(255, 255, 255, 0.85);
+
     color-scheme: light;
   }
 
@@ -29,20 +37,28 @@
   html.dark,
   body.dark,
   .dark {
+    --brand-burgundy: #FE9179;
     --brand-primary: #FE9179;
     --brand-lace: #FFEDD1;
-    --bg-app: #140C12;
-    --bg-surface: #1E121A;
-    --bg-surface-elevated: #281823;
-    --bg-surface-subtle: #331F2D;
-    --bg-input: #24151F;
-    --text-main: #FFEDD1; /* Lace text */
-    --text-secondary: #F0DDC5; /* Soft lace */
-    --text-muted: #C9B299; /* Muted lace */
-    --border-subtle: #3A1F2D;
-    --border-input: #4C293C;
-    --nav-bg: rgba(30, 18, 26, 0.95);
-    --header-bg: rgba(30, 18, 26, 0.95);
+    --brand-coral: #FF6B5E;
+
+    --bg-app: #150C10; /* Warm Obsidian Burgundy */
+    --bg-surface: #1E1217;
+    --bg-surface-elevated: #281820;
+    --bg-surface-subtle: #331F2A;
+    --bg-input: #23151D;
+
+    --text-main: #FFEDD1; /* Lace text (AAA contrast 14:1) */
+    --text-secondary: #E5D3BA;
+    --text-muted: #B8A186;
+
+    --border-subtle: rgba(255, 237, 209, 0.10);
+    --border-hairline: rgba(255, 237, 209, 0.06);
+    --border-input: rgba(255, 237, 209, 0.16);
+
+    --nav-bg: rgba(30, 18, 23, 0.85);
+    --header-bg: rgba(30, 18, 23, 0.85);
+
     color-scheme: dark;
   }
 
@@ -52,135 +68,97 @@
     background-color: var(--bg-app);
     color: var(--text-main);
     accent-color: #FE9179;
-    scrollbar-color: #FFA693 #FFF7F4;
+    scrollbar-color: #FFA693 #FFF8F5;
   }
 
   html.dark {
-    scrollbar-color: #C55A44 #140C12;
+    scrollbar-color: #C55A44 #150C10;
   }
   
   body {
     overflow-x: hidden;
     background-color: var(--bg-app);
     color: var(--text-main);
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    font-family: 'Plus Jakarta Sans', Poppins, system-ui, sans-serif;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  }
+
+  /* Headings typography styling */
+  h1, h2, h3, .font-serif {
+    letter-spacing: -0.02em;
   }
 
   /* ==========================================================================
-     LIGHT MODE CONTRAST DEFAULTS (Dark text on light background)
+     LIGHT MODE CONTRAST SAFEGUARDS
      ========================================================================== */
   html:not(.dark),
   html:not(.dark) body {
-    background-color: #FFF7F4 !important;
-    color: #2D1914 !important;
+    background-color: #FFF8F5 !important;
+    color: #2A1215 !important;
   }
 
   html:not(.dark) .bg-surface-alt {
-    background-color: #FFF7F4 !important;
+    background-color: #FFF8F5 !important;
   }
 
   html:not(.dark) .bg-white {
     background-color: #FFFFFF !important;
-    color: #2D1914;
+    color: #2A1215;
   }
 
   html:not(.dark) .text-ink {
-    color: #2D1914 !important;
+    color: #2A1215 !important;
   }
 
   html:not(.dark) .text-ink-secondary {
-    color: #5C382E !important;
+    color: #634045 !important;
   }
 
   html:not(.dark) .text-ink-muted {
-    color: #7E5347 !important;
-  }
-
-  html:not(.dark) nav,
-  html:not(.dark) header {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    border-color: #FFE0D6 !important;
-  }
-
-  html:not(.dark) input:not([type="checkbox"]):not([type="radio"]),
-  html:not(.dark) select,
-  html:not(.dark) textarea {
-    background-color: #FFFFFF !important;
-    color: #2D1914 !important;
-    border-color: #FFCCBF !important;
-  }
-
-  html:not(.dark) input::placeholder,
-  html:not(.dark) textarea::placeholder {
-    color: #A37F75 !important;
+    color: #8C6369 !important;
   }
 
   /* ==========================================================================
-     DARK MODE CONTRAST OVERRIDES (Light Lace text on dark background)
+     DARK MODE CONTRAST SAFEGUARDS
      ========================================================================== */
   html.dark,
   html.dark body {
-    background-color: #140C12 !important;
-    color: #FFEDD1 !important; /* Lace text */
+    background-color: #150C10 !important;
+    color: #FFEDD1 !important;
   }
 
   html.dark .bg-surface-alt {
-    background-color: #140C12 !important;
+    background-color: #150C10 !important;
   }
 
   html.dark .bg-white {
-    background-color: #1E121A !important;
-    color: #FFEDD1 !important; /* Lace text */
+    background-color: #1E1217 !important;
+    color: #FFEDD1 !important;
   }
 
   html.dark .text-ink {
-    color: #FFEDD1 !important; /* Lace text */
+    color: #FFEDD1 !important;
   }
 
   html.dark .text-ink-secondary {
-    color: #F0DDC5 !important; /* Soft lace */
+    color: #E5D3BA !important;
   }
 
   html.dark .text-ink-muted {
-    color: #C9B299 !important; /* Muted lace */
+    color: #B8A186 !important;
   }
 
-  html.dark .border-primary-100,
-  html.dark .border-purple-100 {
-    border-color: #3A1F2D !important;
-  }
-
-  html.dark .border-primary-50,
-  html.dark .border-purple-50 {
-    border-color: #2A141A !important;
-  }
-
-  html.dark input:not([type="checkbox"]):not([type="radio"]),
-  html.dark select,
-  html.dark textarea {
-    background-color: #24151F !important;
-    color: #FFEDD1 !important; /* Lace text */
-    border-color: #4C293C !important;
-  }
-
-  html.dark input::placeholder,
-  html.dark textarea::placeholder {
-    color: rgba(255, 237, 209, 0.45) !important; /* Lace placeholder */
-  }
-
-  html.dark nav,
-  html.dark header {
-    background-color: rgba(30, 18, 26, 0.95) !important;
-    border-color: #3A1F2D !important;
+  html.dark .border-primary-100 {
+    border-color: rgba(255, 237, 209, 0.10) !important;
   }
 
   html.dark dialog {
-    background-color: #1E121A !important;
-    color: #FFEDD1 !important; /* Lace text */
-    border-color: #4C293C !important;
+    background-color: #1E1217 !important;
+    color: #FFEDD1 !important;
+    border-color: rgba(255, 237, 209, 0.12) !important;
   }
 
-  /* Accessible native <dialog> modal styles adhering to Modern Web Guidance */
+  /* Accessible native <dialog> modal styles */
   dialog:modal {
     overscroll-behavior: contain;
   }
@@ -188,25 +166,69 @@
   dialog::backdrop {
     overflow: hidden;
     overscroll-behavior: contain;
-    background: rgba(20, 12, 18, 0.8);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(18, 9, 14, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 }
 
-/* Custom pulse animations for SOS button */
-@keyframes sos-pulse {
+/* Custom subtle micro-interactions & animations */
+@keyframes sos-soft-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7);
+    box-shadow: 0 0 0 0 rgba(229, 46, 46, 0.5), 0 8px 24px rgba(229, 46, 46, 0.3);
   }
   70% {
-    box-shadow: 0 0 0 20px rgba(229, 57, 53, 0);
+    box-shadow: 0 0 0 14px rgba(229, 46, 46, 0), 0 8px 24px rgba(229, 46, 46, 0.15);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+    box-shadow: 0 0 0 0 rgba(229, 46, 46, 0), 0 8px 24px rgba(229, 46, 46, 0.3);
   }
 }
 
 .animate-sos-pulse {
-  animation: sos-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  animation: sos-soft-pulse 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes radar-ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar-ripple 3s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Glassmorphic hairline utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.dark .glass-panel {
+  background: rgba(30, 18, 23, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 237, 209, 0.10);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 
 /**
- * Accessible, touch-friendly mobile input component
- * Features 44px+ touch height, proper keyboard inputMode, clear labels, and password toggling.
+ * Editorial Touch-Friendly Input Field
+ * - 46px touch height
+ * - Refined focus states and warm validation indicators
+ * - Accessible ARIA attributes and labels
  */
 export const InputField = ({
   id,
@@ -35,9 +37,9 @@ export const InputField = ({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-ink dark:text-lace mb-1.5"
+          className="block text-xs sm:text-sm font-bold text-ink dark:text-lace mb-1.5 tracking-tight"
         >
-          {label} {required && <span className="text-accent font-bold" aria-hidden="true">*</span>}
+          {label} {required && <span className="text-primary font-bold" aria-hidden="true">*</span>}
         </label>
       )}
 
@@ -61,12 +63,12 @@ export const InputField = ({
           disabled={disabled}
           aria-invalid={!!error}
           aria-describedby={error ? errorId : helperText ? helperId : undefined}
-          className={`w-full min-h-[46px] px-3.5 py-2.5 text-base text-ink dark:text-lace placeholder:text-ink-muted/70 dark:placeholder:text-lace/40 bg-white dark:bg-[#24151F] border rounded-brand transition-all duration-150 focus:outline-none focus:ring-2 disabled:bg-surface-muted dark:disabled:bg-[#1E121A] disabled:text-ink-muted dark:disabled:text-lace/40 disabled:cursor-not-allowed ${
+          className={`w-full min-h-[46px] px-3.5 py-2.5 text-sm sm:text-base text-ink dark:text-lace placeholder:text-ink-muted/60 dark:placeholder:text-lace/40 bg-white dark:bg-[#1E1217] border rounded-2xl transition-all duration-200 focus:outline-none focus-visible:ring-2 disabled:bg-surface-muted dark:disabled:bg-[#150C10] disabled:text-ink-muted dark:disabled:text-lace/40 disabled:cursor-not-allowed shadow-xs ${
             Icon ? 'pl-10' : 'pl-3.5'
           } ${isPassword ? 'pr-11' : 'pr-3.5'} ${
             error
-              ? 'border-red-400 dark:border-red-500 focus:border-red-500 focus:ring-red-200 dark:focus:ring-red-950/50'
-              : 'border-primary-100 dark:border-[#4C293C] hover:border-primary-200 dark:hover:border-primary-600 focus:border-primary focus:ring-primary-100 dark:focus:ring-primary-900/40'
+              ? 'border-red-500 dark:border-red-400 focus:border-red-500 focus-visible:ring-red-200 dark:focus-visible:ring-red-950/60'
+              : 'border-burgundy-900/[0.12] dark:border-lace/[0.14] hover:border-primary-400 dark:hover:border-primary-500 focus:border-primary focus-visible:ring-primary/20'
           }`}
           {...props}
         />
@@ -75,7 +77,7 @@ export const InputField = ({
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-2 p-2 text-ink-muted dark:text-lace/70 hover:text-ink dark:hover:text-lace transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-primary-300 min-h-[40px] min-w-[40px] flex items-center justify-center"
+            className="absolute right-2 p-2 text-ink-muted dark:text-lace/70 hover:text-ink dark:hover:text-lace transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary min-h-[40px] min-w-[40px] flex items-center justify-center cursor-pointer"
             aria-label={showPassword ? 'Hide password' : 'Show password'}
             tabIndex={0}
           >
@@ -85,7 +87,7 @@ export const InputField = ({
       </div>
 
       {error ? (
-        <p id={errorId} className="mt-1.5 text-xs text-red-500 dark:text-red-400 font-medium flex items-center gap-1" role="alert">
+        <p id={errorId} className="mt-1.5 text-xs text-red-500 dark:text-red-400 font-semibold flex items-center gap-1" role="alert">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500" />
           {error}
         </p>
@@ -97,4 +99,3 @@ export const InputField = ({
     </div>
   );
 };
-

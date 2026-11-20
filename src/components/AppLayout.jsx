@@ -28,12 +28,12 @@ export const AppLayout = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface-alt dark:bg-[#140C12] transition-colors duration-200 flex flex-col">
+    <div className="min-h-screen bg-surface-alt dark:bg-[#150C10] transition-colors duration-200 flex flex-col font-sans">
       {/* Top Header & Desktop Navigation */}
       <Header subtitle={getSubtitle()} />
 
-      {/* Main Responsive Content Area (Full calibrated desktop container) */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 lg:py-8 pb-24 md:pb-8">
+      {/* Main Responsive Content Area (Spacious ~1280px container with consistent rhythm) */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 pb-28 md:pb-12">
         <Outlet />
       </main>
 

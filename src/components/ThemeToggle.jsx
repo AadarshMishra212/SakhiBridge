@@ -28,10 +28,10 @@ export const ThemeToggle = ({ className = '' }) => {
         aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         title={isDark ? 'Switch to Day mode (Light)' : 'Switch to Night mode (Dark)'}
         onClick={toggleTheme}
-        className={`group relative flex items-center w-[64px] h-[32px] sm:w-[68px] sm:h-[34px] rounded-full p-1 cursor-pointer transition-all duration-500 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary ${
+        className={`group relative flex items-center w-[64px] h-[32px] sm:w-[68px] sm:h-[34px] rounded-full p-1 cursor-pointer transition-all duration-500 shadow-premium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary ${
           isDark
-            ? 'bg-gradient-to-r from-[#170E1A] via-[#241325] to-[#120815] border border-primary/40 shadow-[0_4px_16px_rgba(0,0,0,0.6)]'
-            : 'bg-gradient-to-r from-[#5EB3F6] via-[#89C7FB] to-[#FFD572] border border-sky-200 shadow-[0_4px_14px_rgba(94,179,246,0.35)]'
+            ? 'bg-gradient-to-r from-[#1E1217] via-[#2A1521] to-[#150C10] border border-lace/15 shadow-[0_4px_16px_rgba(0,0,0,0.6)]'
+            : 'bg-gradient-to-r from-[#5EB3F6] via-[#89C7FB] to-[#FFD572] border border-sky-200/80 shadow-[0_4px_14px_rgba(94,179,246,0.35)]'
         }`}
       >
         {/* Day Cloud Fluff (visible on right during day) */}
@@ -58,16 +58,16 @@ export const ThemeToggle = ({ className = '' }) => {
         >
           {/* Sparkle 1 */}
           <svg
-            className="w-2.5 h-2.5 text-lace animate-pulse drop-shadow-[0_0_4px_rgba(255,237,209,0.85)] fill-current"
+            className="w-2.5 h-2.5 text-[#FFEDD1] animate-pulse drop-shadow-[0_0_4px_rgba(255,237,209,0.85)] fill-current"
             viewBox="0 0 24 24"
           >
             <path d="M12 0L14 9L23 12L14 15L12 24L10 15L1 12L10 9L12 0Z" />
           </svg>
           {/* Star 2 */}
-          <span className="w-1 h-1 rounded-full bg-lace animate-pulse shadow-[0_0_3px_#FFEDD1]" />
+          <span className="w-1 h-1 rounded-full bg-[#FFEDD1] animate-pulse shadow-[0_0_3px_#FFEDD1]" />
           {/* Star 3 */}
           <span
-            className="w-1.5 h-1.5 rounded-full bg-lace/90 animate-pulse shadow-[0_0_4px_#FFEDD1]"
+            className="w-1.5 h-1.5 rounded-full bg-[#FFEDD1]/90 animate-pulse shadow-[0_0_4px_#FFEDD1]"
             style={{ animationDelay: '250ms' }}
           />
         </div>
@@ -87,7 +87,6 @@ export const ThemeToggle = ({ className = '' }) => {
               isDark ? 'opacity-0 scale-50' : 'opacity-100 scale-100'
             }`}
           >
-            {/* Subtle sun core shimmer */}
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-100/60 shadow-[0_0_4px_rgba(255,255,255,0.8)]" />
           </div>
 
@@ -98,11 +97,8 @@ export const ThemeToggle = ({ className = '' }) => {
               isDark ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
             }`}
           >
-            {/* Crater 1 */}
             <span className="absolute top-1 left-1.5 w-1.5 h-1.5 rounded-full bg-[#BFA38E]/55" />
-            {/* Crater 2 */}
             <span className="absolute bottom-1.5 left-2 w-1 h-1 rounded-full bg-[#BFA38E]/45" />
-            {/* Crater 3 */}
             <span className="absolute top-2 right-1.5 w-1.5 h-1.5 rounded-full bg-[#BFA38E]/40" />
           </div>
         </div>

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class', // Enable class-based dark mode
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,9 +8,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Ballet Slipper brand palette (#FE9179)
+        // Deep Burgundy Palette (Heart of the protective, editorial identity)
+        burgundy: {
+          50: '#FDF2F4',
+          100: '#FCE4E7',
+          200: '#F9CBD2',
+          300: '#F4A2AF',
+          400: '#EC6E83',
+          500: '#DF3D5B',
+          600: '#C42544',
+          700: '#A41B35',
+          800: '#87182D',
+          900: '#5A121F',
+          950: '#360911',
+        },
+        // Ballet Slipper core palette (#FE9179)
         primary: {
-          DEFAULT: '#FE9179', // Core Ballet Slipper coral-pink
+          DEFAULT: '#FE9179',
           light: '#FFA693',
           dark: '#E27660',
           soft: '#FFF0EC',
@@ -22,12 +36,13 @@ export default {
           500: '#FE9179',
           600: '#E27660',
           700: '#C55A44',
-          800: '#A4422D',
-          900: '#842D1B',
+          800: '#842D1B',
+          900: '#5A121F',
+          950: '#360911',
         },
-        // Lace palette (#FFEDD1) for text, light highlights and warm ivory accents
+        // Lace warm ivory (#FFEDD1)
         lace: {
-          DEFAULT: '#FFEDD1', // Lace warm ivory cream
+          DEFAULT: '#FFEDD1',
           light: '#FFF8EC',
           dark: '#F5DCB5',
           muted: '#E6CAA0',
@@ -38,79 +53,75 @@ export default {
           400: '#E6CAA0',
           500: '#D5B486',
         },
-        // Complementary ballet rose accent
+        // Coral & Rose accents
         accent: {
-          DEFAULT: '#FF6B8B',
-          light: '#FF8DA6',
-          dark: '#E24C6F',
-          soft: '#FFF0F3',
-          50: '#FFF5F7',
-          100: '#FFE8ED',
-          500: '#FF6B8B',
-          600: '#E24C6F',
+          DEFAULT: '#FF6B5E',
+          light: '#FF887D',
+          dark: '#E54E41',
+          soft: '#FFF1EF',
+          50: '#FFF5F4',
+          100: '#FFE8E5',
+          500: '#FF6B5E',
+          600: '#E54E41',
         },
-        // Warm ballet-toned aliases for border and background utility compatibility
-        purple: {
-          50: '#FFF6F3',
-          100: '#FFEBE5',
-          200: '#FFD7CC',
-          300: '#FFAEA0',
-          400: '#FF8F7E',
-          500: '#FE9179',
-          600: '#E27660',
-          700: '#B8503C',
-          800: '#3D1D23',
-          900: '#2A141A',
-          950: '#1D0E13',
-        },
-        // Base backgrounds & surfaces (backed by CSS theme variables with fallback)
+        // Semantic surfaces
         surface: {
           DEFAULT: 'var(--bg-surface, #FFFFFF)',
-          alt: 'var(--bg-app, #FFF7F4)',
+          alt: 'var(--bg-app, #FFF8F5)',
           muted: 'var(--bg-surface-subtle, #FFEAE2)',
           card: 'var(--bg-surface, #FFFFFF)',
           elevated: 'var(--bg-surface-elevated, #FFF1EC)',
-          dark: '#1E121A',
-          darkCard: '#281823',
+          dark: '#150C10',
+          darkCard: '#1E1217',
+          darkElevated: '#281820',
         },
+        // Semantic typography ink
         ink: {
-          DEFAULT: 'var(--text-main, #2D1914)', // Deep warm espresso in light mode, Lace #FFEDD1 in dark mode
-          secondary: 'var(--text-secondary, #6E493F)',
-          muted: 'var(--text-muted, #966E63)',
-          light: '#FFEDD1', // Lace
-          dark: '#FFEDD1',  // Lace text in dark mode!
-          darkSecondary: '#F0DDC5', // Soft lace
-          darkMuted: '#C9B299',    // Muted lace
+          DEFAULT: 'var(--text-main, #2A1215)',
+          secondary: 'var(--text-secondary, #634045)',
+          muted: 'var(--text-muted, #8C6369)',
+          light: '#FFEDD1',
+          dark: '#FFEDD1',
+          darkSecondary: '#E5D3BA',
+          darkMuted: '#B8A186',
         },
         border: {
-          DEFAULT: 'var(--border-subtle, #FFE0D6)',
+          DEFAULT: 'var(--border-subtle, rgba(110, 24, 38, 0.08))',
           input: 'var(--border-input, #FFCCBF)',
         },
-        // SOS & status indicators
+        // SOS Red (Reserved STRICTLY for emergency actions)
         sos: {
-          DEFAULT: '#E53935',
-          dark: '#C62828',
-          glow: 'rgba(229, 57, 53, 0.35)',
+          DEFAULT: '#E52E2E',
+          dark: '#B91C1C',
+          light: '#FEE2E2',
+          glow: 'rgba(229, 46, 46, 0.28)',
         },
         safe: {
-          DEFAULT: '#10B981',
+          DEFAULT: '#059669',
           soft: '#ECFDF5',
+          dark: '#34D399',
         }
       },
       fontFamily: {
-        sans: ['Poppins', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Poppins', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'Cambria', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       borderRadius: {
         'brand': '16px',
-        '16': '16px',
+        'xl': '12px',
         '2xl': '16px',
         '3xl': '24px',
+        '4xl': '28px',
+        '5xl': '32px',
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(254, 145, 121, 0.12)',
-        'float': '0 8px 30px -4px rgba(254, 145, 121, 0.22)',
-        'nav': '0 -4px 20px rgba(30, 18, 26, 0.08)',
-        'sos': '0 0 0 10px rgba(229, 57, 53, 0.15), 0 10px 30px rgba(229, 57, 53, 0.35)',
+        'soft': '0 2px 6px rgba(74, 14, 23, 0.03), 0 8px 20px -2px rgba(74, 14, 23, 0.06)',
+        'premium': '0 2px 4px rgba(74, 14, 23, 0.04), 0 12px 28px rgba(74, 14, 23, 0.08)',
+        'float': '0 4px 10px rgba(74, 14, 23, 0.05), 0 20px 40px rgba(74, 14, 23, 0.12)',
+        'glow-rose': '0 0 24px rgba(254, 145, 121, 0.35)',
+        'nav': '0 -4px 20px rgba(30, 18, 23, 0.06)',
+        'sos': '0 0 0 8px rgba(229, 46, 46, 0.18), 0 12px 30px rgba(229, 46, 46, 0.38)',
       },
       minHeight: {
         'touch': '44px',
